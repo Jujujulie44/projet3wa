@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {StoreContext} from './tools/context.js'; 
 
-//todo
+
 function App() {
   const  [state, dispatch] = React.useContext(StoreContext);
   return (
