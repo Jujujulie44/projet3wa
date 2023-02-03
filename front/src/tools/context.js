@@ -2,7 +2,8 @@ import React from "react"
 const StoreContext = React.createContext([]);
 
 const initialState = {
-    // counter: 0
+    count : 0,
+    data : []
 }
 
 export {StoreContext, initialState}
