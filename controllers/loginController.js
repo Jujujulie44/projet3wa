@@ -3,6 +3,7 @@ import bcrypt from "bcrypt"
 import {generateToken} from "../config/token.js"
 
 
+
 const generateResponse = async (userDataSQL) => {
     // ID du role Admin en BDD
     const ADMIN_ROLE_ID = 1

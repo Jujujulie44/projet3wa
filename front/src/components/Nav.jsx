@@ -22,43 +22,18 @@ const Nav = (props) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/Users">
-            Users
+          <NavLink to="/login">
+            Login
           </NavLink>
         </li>
         <li>
-          <NavLink to="/AddUser">
-            AddUser
+          <NavLink to="/uploadFile">
+            UploadFile
           </NavLink>
         </li>
         <li>
-          <NavLink to="/Allarticle">
-            article
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/AddArticle">
-            ajouter un article
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/AddCommentaires">
-            commentaires
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/Login">
-            login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/detailArticle">
-            detail des articles
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/detailArticle">
-            upload
+          <NavLink to="/addArticle">
+            AddArticle
           </NavLink>
         </li>
         
