@@ -4,14 +4,12 @@ import axios from 'axios';
 
 const Nav = (props) => {
   
-  useEffect(() => {
-    if(!axios.defaults.headers.common['Authorization']){
-      const token = localStorage.getItem("jwtToken")
-      if(token){
-        axios.defaults.headers.common['Authorization'] = 'Bearer '+token
-      }
+   useEffect(() => {
+    const jwtToken = localStorage.getItem("jwtToken")
+    if (!axios.defaults.headers.common["Authorization"] && jwtToken) {
+      axios.defaults.headers.common["Authorization"] = `Bearer ${jwtToken}`
     }
-  },[])
+  }, [])
   
   return (
     <nav>
@@ -34,6 +32,11 @@ const Nav = (props) => {
         <li>
           <NavLink to="/addArticle">
             AddArticle
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/allArticle">
+            AllArticle
           </NavLink>
         </li>
         

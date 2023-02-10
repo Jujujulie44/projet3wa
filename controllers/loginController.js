@@ -33,13 +33,17 @@ export default async (req, res) => {
     const sql = "SELECT * FROM users WHERE email = ?"
     const paramsSql = [email]
 
+    const result = await asyncQuery(sql, paramsSql)
+    if(!result){
+        res.status(401).json({error: "Identifiant ou mdp non valide"})
+    }
+    
     try {
-        const result = await asyncQuery(sql, paramsSql)
         const response = await generateResponse(result[0])
         const resultCompare = await bcrypt.compare(password, result[0].password)
         res.json(resultCompare ? {response} : {response:null})
     } catch(err){
         console.log(err)
-        res.sendStatus(500)
+        res.status(500).json({error: "Identifiant ou mdp non valide"})
     }
 }
