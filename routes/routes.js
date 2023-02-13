@@ -1,6 +1,6 @@
 import express from "express";
 
-import inputLength from "../controllers/inputLength.js";
+
 
 import testController from "../controllers/testController.js";
 import loginController from "../controllers/loginController.js";
@@ -17,13 +17,8 @@ import getArticleController from "../controllers/getArticleController.js";
 
 
 
-
-
-
-
 const router = express.Router();
 
-router.post("/inputLength", inputLength);
 
 router.get("/", testController);
 router.post("/login", loginController);

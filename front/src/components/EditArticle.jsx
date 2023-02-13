@@ -2,6 +2,8 @@ import {useState, useEffect, Fragment} from "react"
 import {useParams} from "react-router-dom"
 import axios from "axios"
 import {BASE_URL} from "../tools/constante.js"
+import inputCheck from "../tools/inputLength.js"
+
 
 const EditArticle = () => {
     const [article, setArticle] = useState(null)
@@ -17,14 +19,18 @@ const EditArticle = () => {
     
     const handleChange = (e) => {
         const {name, value} = e.target
-        setArticle({...article, [name]: value})
-        setButtonText("enregistrer les modifications")
+        if(inputCheck(value)){
+            setArticle({...article, [name]:value})
+            setButtonText("enregistrer les modifications")
+        }
     }
     
     const submit = (e) =>{
         e.preventDefault()
-        axios.post(`${BASE_URL}/editArticle`,{...article})
-    } 
+        if(inputCheck(article.title) && inputCheck(article.descriptif)){
+            axios.post(`${BASE_URL}/editArticle`,{...article})
+        } 
+    }
     
     return (
         <Fragment>
@@ -32,7 +38,7 @@ const EditArticle = () => {
                 <form onSubmit={submit}>
                     <input type="text" placeholder='title' name='title' onChange={handleChange} value={article.title} />
                     <input type="text" placeholder='descriptif' name='descriptif' onChange={handleChange} value={article.descriptif} />
-                    <input type="text" placeholder='prix' name='prix' onChange={handleChange} value={article.prix} />
+                    <input type="number" placeholder='prix' name='prix' onChange={handleChange} value={article.prix} />
                     <input type='submit' placeholder='modifier' value={buttonText} />
                 </form>
             )}

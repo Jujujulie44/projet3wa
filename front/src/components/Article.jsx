@@ -3,6 +3,8 @@ import {useEffect, useState} from "react"
 import {useParams} from "react-router-dom"
 import {BASE_URL} from "../tools/constante.js"
 
+
+
 const Article = () => {
     const [article, setArticle] = useState([])
     const {id} = useParams()

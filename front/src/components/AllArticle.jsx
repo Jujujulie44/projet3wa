@@ -18,9 +18,9 @@ const AllArticle = () => {
     const deletedArticle = (id) => {
         console.log(id)
         axios.post((`${BASE_URL}/deleteArticle`),{id})
+        .then(res => setArticles(articles.filter((e) => e.id !== id)))
         
     }
-    
     const editArticle = (id) => {
         console.log(id)
         navigate(`/editArticle/${id}`)
