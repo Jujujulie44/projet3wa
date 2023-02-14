@@ -1,7 +1,7 @@
-import axios from "axios"
-import {NavLink} from "react-router-dom"
-import {useState, useEffect} from "react"
-import {BASE_URL} from "../tools/constante.js"
+import axios from "axios";
+import {NavLink} from "react-router-dom";
+import {useState, useEffect} from "react";
+import {BASE_URL} from "../tools/constante.js";
 import { useNavigate } from "react-router-dom";
 
 

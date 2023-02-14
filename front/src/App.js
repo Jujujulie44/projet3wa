@@ -10,6 +10,10 @@ import AllArticle from "./components/AllArticle";
 import Article from "./components/Article";
 import EditArticle from "./components/EditArticle";
 
+import AddUser from "./components/AddUser";
+import Users from "./components/Users";
+import EditUser from "./components/EditUser";
+
 
 import Error404 from "./components/Error404";
 
@@ -27,6 +31,11 @@ function App() {
                 <Route path="/allArticle" element={<AllArticle />} />
                 <Route path="/editArticle/:id" element={<EditArticle />} />
                 <Route path="/article/:id" element={<Article />} />
+                
+                <Route path="/addUser" element={<AddUser />} />
+                <Route path="/users" element={<Users />} />
+                <Route path="/user/:id" element={<EditUser />} />
+                
                 
                 <Route path="*" element={<Error404 />} />
             </Routes>

@@ -39,6 +39,11 @@ const Nav = (props) => {
             AllArticle
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/addUser">
+            AddUser
+          </NavLink>
+        </li>
         
       </ul>
     </nav>

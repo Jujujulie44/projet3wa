@@ -32,9 +32,25 @@ const AddArticle = ()=> {
     
     return(
         <form onSubmit={submit}>
+        <h1>Ajouter une image</h1>
+        <label name='image'>
+        <input type='file' name='image'/>
+        </label>
+        
+        <h1>Ajouter un produit</h1>
+        <label> nom du produit
             <input type='text' placeholder='title' name='title' onChange={handleChange} value={addArticleData.title} />
+        </label>
+        
+        <h1>Décrire le produit</h1>
+        <label> Description du produit
             <input type='text' placeholder='descriptif' name='descriptif' onChange={handleChange} value={addArticleData.descriptif} />
+        </label>
+        
+        <h1>Indiquer le prix du produit</h1>
+        <label> Ajouter le prix
             <input type='number' placeholder='prix' name='prix' onChange={handleChange} value={addArticleData.prix} />
+        </label>   
             <input type='submit' />
             
         </form>    
