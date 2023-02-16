@@ -38,11 +38,11 @@ const UploadFile = () => {
     
     return (
         <Fragment>
-            <h1>Ajouter/Modifier l'avatar</h1>
+            <h1>Ajouter/Modifier l'image</h1>
             <form onSubmit={submit} encType="multipart/form-data">
                 <label name='avatar'>
                     <input type='file' name='avatar' onChange={(e) => setFile(e.target.files[0])} />
-                    <input type='submit' value='Submit' />
+                    <input type='submit' value='Envoyer' />
                 </label>
             </form>
         </Fragment>

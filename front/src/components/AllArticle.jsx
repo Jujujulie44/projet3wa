@@ -18,12 +18,23 @@ const AllArticle = () => {
     const deletedArticle = (id) => {
         console.log(id)
         axios.post((`${BASE_URL}/deleteArticle`),{id})
-        .then(res => setArticles(articles.filter((e) => e.id !== id)))
-        
+            .then(res => setArticles(articles.filter((e) => e.id !== id)))
     }
+    
     const editArticle = (id) => {
         console.log(id)
         navigate(`/editArticle/${id}`)
+    }
+    
+    const deletedPicture = (id) => {
+        console.log(id)
+        axios.post((`${BASE_URL}/deletePictureById`),{id})
+        
+    }
+    
+    const editPicture = (id) => {
+        console.log(id)
+        navigate(`/editPicture/${id}`)
     }
     
     
@@ -35,6 +46,10 @@ const AllArticle = () => {
                         
                         <p>id:{article.id}</p>
                         <p><NavLink to={`/editArticle/${article.id}`}>titre:{article.title}</NavLink></p>
+                        <p>image: <img src={`${BASE_URL}/img/${article.url}`} alt="" /></p>
+                        <p><NavLink to={`/editPicture/${article.id}`}></NavLink></p>
+                        <button onClick={() => deletedPicture(article.id)}>Supprimer l'image</button>
+                        <button onClick={() => editPicture(article.id)}>modifier l'image</button>
                         <p>descriptif:{article.descriptif}</p>
                         <p>prix:{article.prix}</p>
                         <button onClick={() => deletedArticle(article.id)}>Supprimer</button>

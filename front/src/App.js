@@ -14,6 +14,8 @@ import AddUser from "./components/AddUser";
 import Users from "./components/Users";
 import EditUser from "./components/EditUser";
 
+import EditPicture from "./components/EditPicture"; 
+
 
 import Error404 from "./components/Error404";
 
@@ -36,6 +38,7 @@ function App() {
                 <Route path="/users" element={<Users />} />
                 <Route path="/user/:id" element={<EditUser />} />
                 
+                <Route path="/editPicture/:id" element={<EditPicture />} />
                 
                 <Route path="*" element={<Error404 />} />
             </Routes>

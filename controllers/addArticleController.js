@@ -1,13 +1,20 @@
-import {pool} from "../config/database.js"
+import {asyncQuery} from "../config/database.js"
 
-export default (req, res) => {
+export default async (req, res) => {
+    const {title, descriptif, prix, files} = req.body
+    
     const sql = "INSERT INTO products (title, descriptif, prix) VALUES (?,?,?)"
-    const {title, descriptif, prix} = req.body
+    const sqlPictures = "INSERT INTO pictures (product_id, url, caption) VALUES (?,?,?)"
+    
     const paramsSql = [title, descriptif, prix]
-    pool.query(sql,paramsSql,(err, result) => {
-        
-        if(err) throw err
-        res.json({result})
-        console.log(result)
-    })
+    
+    const product = await asyncQuery(sql,paramsSql)
+    
+    const paramsSqlPicture = [product.insertId,files,title]
+    
+    const pictures = await asyncQuery(sqlPictures,paramsSqlPicture)
+    res.json({product,pictures})
+    
 }
+
+// pictures product_id url caption

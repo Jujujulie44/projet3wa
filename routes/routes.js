@@ -5,6 +5,10 @@ import uploadFile from "../controllers/uploadFile.js";
 import middleware from "../controllers/middleware.js";
 import middlewareUploadFile from "../controllers/middlewareUploadFile.js";
 
+import editPictureByIdController from "../controllers/editPictureByIdController.js";
+import getPictureByIdController from "../controllers/getPictureByIdController.js";
+import deletePictureByIdController from "../controllers/deletePictureByIdController.js";
+
 import addArticleController from "../controllers/addArticleController.js";
 import getArticleByIdController from "../controllers/getArticleByIdController.js";
 import getArticleDetailController from "../controllers/getArticleDetailController.js";
@@ -25,6 +29,10 @@ router.get("/", testController);
 router.post("/login", middleware,loginController);
 router.post("/uploadFile", uploadFile);
 
+router.post("/editPictureById", middlewareUploadFile, editPictureByIdController);
+router.post("/getPictureById", getPictureByIdController);
+router.post("/deletePictureById", deletePictureByIdController); 
+
 router.post("/addArticle", middlewareUploadFile, addArticleController);
 router.post("/getArticleById", getArticleByIdController);
 router.post("/articleDetail", getArticleDetailController);
@@ -36,6 +44,6 @@ router.post("/addUser", addUserController);
 router.get("/getUsers", getUsersController);
 router.post("/deleteUserById", deleteUserByIdController);
 router.post("/editUserById", editUserByIdController);
-router.post("/getUserById", getUserByIdController)
+router.post("/getUserById", getUserByIdController);
 
 export default router;

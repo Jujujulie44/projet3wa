@@ -2,13 +2,15 @@ import axios from "axios"
 import {useState} from "react";
 import {BASE_URL} from '../tools/constante.js';
 import inputCheck from "../tools/inputLength.js";
-
+// import { useReducer } from 'react';
 
 const AddArticle = ()=> {
     const [addArticleData, setAddArticleData]= useState ({
         title:'', 
         descriptif:'', 
         prix:0
+    // pour vider les input : divForDelete.remove()?
+    
     })
     
     const handleChange = (e) => {
@@ -22,35 +24,41 @@ const AddArticle = ()=> {
     const submit = (e) => {
         e.preventDefault()
         if(inputCheck(addArticleData.title) && inputCheck(addArticleData.descriptif)){
-            axios.post(`${BASE_URL}/addArticle`,{
-               title : addArticleData.title,
-               descriptif: addArticleData.descriptif,
-               prix: addArticleData.prix,
-            })
+            const dataFile = new FormData();
+            const files = {...e.target.image.files};
+            
+            dataFile.append('files', files[0], files[0].name)
+            
+            dataFile.append('title', addArticleData.descriptif)
+            dataFile.append('descriptif', addArticleData.title)
+            dataFile.append('prix', addArticleData.prix)
+            
+            
+            axios.post(`${BASE_URL}/addArticle`,dataFile)
         }
     }
     
     return(
-        <form onSubmit={submit}>
-        <h1>Ajouter une image</h1>
-        <label name='image'>
-        <input type='file' name='image'/>
-        </label>
-        
-        <h1>Ajouter un produit</h1>
-        <label> nom du produit
-            <input type='text' placeholder='title' name='title' onChange={handleChange} value={addArticleData.title} />
-        </label>
-        
-        <h1>Décrire le produit</h1>
-        <label> Description du produit
-            <input type='text' placeholder='descriptif' name='descriptif' onChange={handleChange} value={addArticleData.descriptif} />
-        </label>
-        
-        <h1>Indiquer le prix du produit</h1>
-        <label> Ajouter le prix
-            <input type='number' placeholder='prix' name='prix' onChange={handleChange} value={addArticleData.prix} />
-        </label>   
+        <form onSubmit={submit} encType="multipart/form-data">
+            <h1>Ajouter une image : </h1>
+            <label name='image'>
+                <input type='file' name='image'/>
+            </label>
+            
+            <h1>Ajouter un produit : </h1>
+            <label> nom du produit
+                <input type='text' placeholder='title' name='title' onChange={handleChange} value={addArticleData.title} />
+            </label>
+            
+            <h1>Concernant le produit : </h1>
+            <label> Description du produit
+                <input type='text' placeholder='descriptif' name='descriptif' onChange={handleChange} value={addArticleData.descriptif} />
+            </label>
+            
+            <h1>Indiquer le prix du produit :</h1>
+            <label> Ajouter un prix
+                <input type='number' placeholder='prix' name='prix' onChange={handleChange} value={addArticleData.prix} />
+            </label>   
             <input type='submit' />
             
         </form>    
