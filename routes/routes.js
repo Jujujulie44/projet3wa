@@ -2,6 +2,7 @@ import express from "express";
 import testController from "../controllers/testController.js";
 import loginController from "../controllers/loginController.js";
 import uploadFile from "../controllers/uploadFile.js";
+import checkToken from '../controllers/checkToken.js';
 import middleware from "../controllers/middleware.js";
 import middlewareUploadFile from "../controllers/middlewareUploadFile.js";
 
@@ -22,12 +23,19 @@ import deleteUserByIdController from "../controllers/deleteUserByIdController.js
 import editUserByIdController from "../controllers/editUserByIdController.js";
 import getUserByIdController from "../controllers/getUserByIdController.js";
 
+
+
+
+
+
+
 const router = express.Router();
 
 
 router.get("/", testController);
 router.post("/login", middleware,loginController);
 router.post("/uploadFile", uploadFile);
+router.get("/relogged", checkToken);
 
 router.post("/editPictureById", middlewareUploadFile, editPictureByIdController);
 router.post("/getPictureById", getPictureByIdController);

@@ -1,20 +1,26 @@
 const reducer = (state, action) =>{
     switch(action.type){
         
-        case 'incr':
+        case 'INCREMENTER':
             return {
                 ...state,
-                counter : state.counter+1
+                count:state.count + action.payload,
             }
                 
-        case 'decr':
+        case 'ADD_DATA':
             return {
-                 ...state,
-                   counter : state.counter-1
+                ...state,
+                data : [...state.data, action.payload]
             }
+        
+        case 'LOGIN':
             return {
-                state
-                
+                ...state, 
+                user:{
+                    isLogged:true,
+                    isAdmin:action.payload.admin,
+                    ...action.payload
+                }
             }
 
         default:
@@ -23,3 +29,4 @@ const reducer = (state, action) =>{
 }
 
 export {reducer}
+

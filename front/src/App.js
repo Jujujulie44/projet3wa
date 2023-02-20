@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import UploadFile from "./components/UploadFile";
+import Deconnexion from "./components/Deconnexion";
 
 import AddArticle from "./components/AddArticle";
 import AllArticle from "./components/AllArticle";
@@ -13,7 +14,6 @@ import EditArticle from "./components/EditArticle";
 import AddUser from "./components/AddUser";
 import Users from "./components/Users";
 import EditUser from "./components/EditUser";
-
 import EditPicture from "./components/EditPicture"; 
 
 
@@ -28,6 +28,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/uploadFile" element={<UploadFile />} />
+                <Route path="/logout" element={<Deconnexion />} />
                 
                 <Route path="/addArticle" element={<AddArticle />} />
                 <Route path="/allArticle" element={<AllArticle />} />
