@@ -5,10 +5,15 @@ const Deconnexion = () => {
      useEffect(() => {
         localStorage.removeItem('jwtToken')
         delete axios.defaults.headers.common['Authorization']
-    },[])
+        
+    // Message de déconnexion personnalisé
+    const goodbyeMessage = "Vous avez été déconnecté avec succès. À bientôt !"
+    alert(goodbyeMessage)
+         
+     },[])
     
     return(
-        <div>bye</div> 
+        <div>A bientôt !</div> 
     )   
 }
 

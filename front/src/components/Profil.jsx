@@ -9,6 +9,8 @@ const Profil = () => {
     const [articles, setArticles] = useState([])
     const [profilData, setProfilData] = useState([])
     
+    
+    
     useEffect(() => {
         axios.post(`${BASE_URL}/getProfilData`,{user_id:id})
         .then(res => {
@@ -21,6 +23,7 @@ const Profil = () => {
     return (
         <div>
         <h2>PROFIL</h2>
+        <h3>Bienvenue sur votre profil, {profilData[0] && profilData[0].nom}!</h3>
         {profilData.map((data,i) => {
         
             return(
