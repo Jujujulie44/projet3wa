@@ -14,14 +14,13 @@ const generateResponse = async (userDataSQL) => {
         nom:userDataSQL.nom,
         prenom:userDataSQL.prenom,
         email:userDataSQL.email,
-        username: userDataSQL.username,
         
         user:true,
         admin
     }
     try {
         const token = await generateToken(userData)
-        return {response:true, admin, token, username : userData.username}
+        return {response:true, admin, token, username : userData.email} // utilise l'adresse email comme username
     } catch(err){
         console.log(err)
         return

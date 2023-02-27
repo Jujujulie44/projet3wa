@@ -1,8 +1,7 @@
 import {asyncQuery} from "../config/database.js"
 export default async (req, res) => {
     const {user_id} = req.body
-    // const sqlArticle = "SELECT * FROM products WHERE user_id = ?"
-    // const sqlCom = "SELECT article_id,contente FROM commentaires WHERE user_id = ?"
+    
     const sqlUser = `
     SELECT 
     	users.nom,

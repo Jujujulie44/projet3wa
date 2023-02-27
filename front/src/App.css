@@ -37,12 +37,3 @@
   }
 }
 
-
-/****** HEADER *****/ 
-
-header {
-	background-image: url("image/mystery_1920.jpg");
-	background-size: cover;
-	background-position:center;
-  padding:2.5em;
-}

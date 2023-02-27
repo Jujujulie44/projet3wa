@@ -1,4 +1,5 @@
 import React from "react"
+
 const StoreContext = React.createContext([]);
 
 const initialState = {
@@ -6,7 +7,8 @@ const initialState = {
         isAdmin : false,
         isLogged: false,
         id:null
-    }
+    },
+    cart : []
 }
 
 export {StoreContext, initialState}

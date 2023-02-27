@@ -1,4 +1,5 @@
 const reducer = (state, action) =>{
+    
     switch(action.type){
     
         case 'INCREMENTER':
@@ -20,7 +21,17 @@ const reducer = (state, action) =>{
                     isLogged:true,
                     isAdmin:action.payload.admin,
                     ...action.payload
-                }
+                },
+                
+                isLogged: true
+            } 
+                
+        case 'LOGOUT' : 
+            return {
+                ...state,
+                user:{isLogged:false},
+                isLogged:false
+            
             }
 
         default:

@@ -1,8 +1,11 @@
 import { NavLink } from "react-router-dom";
-import {useEffect} from 'react';
+import {useEffect, useContext, Fragment} from 'react';
 import axios from 'axios';
+import {StoreContext} from "../tools/context.js"
+
 
 const Nav = (props) => {
+   const [state, dispatch] = useContext(StoreContext) //
   
    useEffect(() => {
     const jwtToken = localStorage.getItem("jwtToken")
@@ -12,41 +15,45 @@ const Nav = (props) => {
   }, [])
   
   return (
+    <Fragment>
     <nav>
       <ul>
+      
+      {state.user.role_id === 2 && (
+      
+      <div>
         <li>
-          <NavLink to="/">
-            HOME
-          </NavLink>
+          <NavLink to="/addArticle">Ajouter un produit</NavLink>
+        </li>
+        
+        <li>
+          <NavLink to="/allArticle">Afficher tous les produits</NavLink>
+        </li>
+        
+        <li>
+          <NavLink to="/uploadFile">Télécharger une image</NavLink>
+        </li>
+      </div>
+      )}
+      
+        <li>
+          <NavLink to="/">Ma Maison</NavLink>
         </li>
         <li>
-          <NavLink to="/login">
-            Login
-          </NavLink>
+          <NavLink to="/allArticle">Mes tirages</NavLink>
         </li>
+        
         <li>
-          <NavLink to="/uploadFile">
-            UploadFile
-          </NavLink>
+          <NavLink to="/addUser">S'incrire</NavLink>
         </li>
+        
         <li>
-          <NavLink to="/addArticle">
-            AddArticle
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/allArticle">
-            AllArticle
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/addUser">
-            AddUser
-          </NavLink>
+          <NavLink to="/login">Se connecter</NavLink>
         </li>
         
       </ul>
     </nav>
+    </Fragment>
     );
   };
 
