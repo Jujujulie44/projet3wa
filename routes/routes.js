@@ -23,7 +23,8 @@ import deleteUserByIdController from "../controllers/deleteUserByIdController.js
 import editUserByIdController from "../controllers/editUserByIdController.js";
 import getUserByIdController from "../controllers/getUserByIdController.js";
 
-
+import getCartController from "../controllers/getCartController.js";
+import deleteCartController from "../controllers/deleteCartController.js";
 
 
 
@@ -53,5 +54,8 @@ router.get("/getUsers", getUsersController);
 router.post("/deleteUserById", deleteUserByIdController);
 router.post("/editUserById", editUserByIdController);
 router.post("/getUserById", getUserByIdController);
+
+router.get("/getCart", getCartController);
+router.post("/deleteCart", deleteCartController);
 
 export default router;

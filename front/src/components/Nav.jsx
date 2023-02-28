@@ -16,7 +16,7 @@ const Nav = (props) => {
   
   return (
     <Fragment>
-    <nav>
+    <nav >
       <ul>
       
       {state.user.role_id === 2 && (
@@ -40,7 +40,7 @@ const Nav = (props) => {
           <NavLink to="/">Ma Maison</NavLink>
         </li>
         <li>
-          <NavLink to="/allArticle">Mes tirages</NavLink>
+          <NavLink to="/Cart">Mes tirages</NavLink>
         </li>
         
         <li>

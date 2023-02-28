@@ -43,6 +43,7 @@ const Login = () => {
                     axios.defaults.headers.common['Authorization'] = 'Bearer '+res.data.response.token
                     setInfo(initialState);
                     setLogin(true)
+                    navigate("/profil")
                     
                     // Message de bienvenue personnalisé
                     // const userEmail = res.data.response.username
@@ -51,7 +52,6 @@ const Login = () => {
                     } else {
                         alert("Email ou mot de passe erroné")
                     }
-                   navigate("/profil")
                 })
             }
         }

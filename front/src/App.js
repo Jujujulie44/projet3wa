@@ -1,4 +1,5 @@
 import './App.css';
+import "./css/style.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import Nav from "./components/Nav";
 import Home from "./components/Home";
@@ -19,8 +20,11 @@ import EditUser from "./components/EditUser";
 import EditPicture from "./components/EditPicture"; 
 import Profil from "./components/Profil"; 
 
+import Cart from "./components/Cart"; 
 
 import Header from "./components/Header";
+
+
 
 import Error404 from "./components/Error404";
 
@@ -29,7 +33,6 @@ function App() {
     return (
         <BrowserRouter>
             <Header />
-            <PrivateRoute />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
@@ -49,6 +52,7 @@ function App() {
                 
                 <Route path="/editPicture/:id" element={<EditPicture />} />
                 
+                <Route path ="/Cart" element={<Cart />} />
                 
                 
                 <Route path="*" element={<Error404 />} />

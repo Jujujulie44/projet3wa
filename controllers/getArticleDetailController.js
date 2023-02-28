@@ -3,7 +3,7 @@ import {pool} from "../config/database.js"
 
 export default async (req, res) => {
     const {id} = req.body
-    // affichier le titre, la description et le prix 
+    // affichier le titre, la description et le prix
     // affichier le nom de l'auteur
     const sqlArticle = `
         SELECT 

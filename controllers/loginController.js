@@ -5,7 +5,7 @@ import {generateToken} from "../config/token.js"
 
 const generateResponse = async (userDataSQL) => {
     // ID du role Admin en BDD
-    const ADMIN_ROLE_ID = 1
+    const ADMIN_ROLE_ID = 2
     // verrifie si le user est admin return true OR false
     const admin = userDataSQL.role_id === ADMIN_ROLE_ID
     
