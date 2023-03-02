@@ -1,78 +1,83 @@
 import {BASE_URL} from "../tools/constante.js";
-import {Fragment, useState, useContext, useEffect} from "react";
+import {Fragment, useContext, useEffect} from "react";
 import axios from "axios";
 import {StoreContext} from "../tools/context.js"
+import { useNavigate } from "react-router-dom";
 
 const Cart =() => {
     
     const [state, dispatch] = useContext(StoreContext)
-    const [newCart, setNewCart] = useState ([])
-    const [pictures, setPictures] = useState([])
-    const user_id = state.user.id
-    
-    console.log(state)
+    const navigate = useNavigate()
     
     // recupere tous les produits stocké dans le reducer 
-    useEffect (() =>{
-        
-        if(state.products.length ===0){
-            axios.get(`${BASE_URL}/getArticleDetailController`)
-            .then(res => {
-                dispatch ({
-                    type:"ALL_PRODUCTS",
-                    payload:res.data.allproduct.result})
-            })
-            .catch(err => console.log(err))
-        }
-    },[])
     
-    // recupere toutes les infos des produits en BDD (tables: pictures, products) qui sont dans le panier du user
-    useEffect(()=>{
-        axios.post(`${BASE_URL}/getPictureByIdController`,{user_id})
-        .then (res =>{
-            console.log(res)
-            dispatch ({type:"INIT_CART", payload:res.data.result.result})
-        })
-    .catch(err=>console.log(err))
-        
-    }, [user_id])
+    useEffect(() => {
+       if(state.cart.length === 0 && state.user.cartId){
+           axios.post(`${BASE_URL}/getCart`,{panier_id:state.user.cartId})
+           .then(res => {
+               console.log(res)
+               dispatch({type:"INIT_CART", payload:res.data.result.cartProduct})
+           })
+        } 
+    },[]) // Line 24:7:  React Hook useEffect has missing dependencies: 'dispatch' and 'state.products.length'. Either include them o
+            //r remove the dependency array  react-hooks/exhaustive-deps     
     
     
     // supprimer un produit dans la table panier
+    const removeCart = (product) => {
+        axios.post(`${BASE_URL}/deleteProductCart`,{panier_id:state.user.cartId, product_id:product.id})// TODO => {panier_id, product_id}
+        .then(() => {
+            dispatch({ 
+                type: "INIT_CART",
+                payload: state.cart.filter((e) => e.id !== product.id)
+            });
+        })
+    };
     
-    const handleDelete = (id, productId) => {
-        console.log({id, productId})
+    console.log(state);
+    
+    const submitCart = () => {
+        /*
+            1) supprimer tout les element du panier (Reducer)(dispatch => REMOVE_CART)
+            2) supprimer tout les element du panier (BDD)(deleteCartController)
+            3) rediriger l'utilisateur sur une page de confirmation (useNavigate)
+        */
         
-        axios.post(`${BASE_URL}/deleteCartController`, {id})
-        .then (()=>{
-            let result = state.panier.filter((e) => {
-                console.log({e, productId});
-                return e.product_id !== productId;
+        // axios.post(`${BASE_URL}/addCart`, {product_id : state.cart.id, panier_id : state.user.panier_id})
+        // .then(res => console.log(res))
+        // .catch(err => console.log(err));
+        
+        axios.post(`${BASE_URL}/deleteCart`,{panier_id:state.user.cartId})
+        .then(res => {
+            dispatch({ 
+                type: "REMOVE_CART"
             });
-            
-            console.log(result);
-            dispatch ({
-                type : "REMOVE_ITEM_FROM_CART", 
-                payload : result
-            });
-        });
-    }
+        })
+        navigate("/SuccessCommande")
+    };
+   
     return (
         <Fragment>
             <h1> Mon Panier</h1>
-            {(state && state.cart.length > 0) && state.cart.map((panier,i)=>
-            
-                <div key ={i}>
-                    <img src ={`${BASE_URL}/image/${panier.url}`} width ="20%" alt={panier.caption} />
-                    <p>{panier.name} : {panier.descriptif}</p>
-                    <p>{panier.price}€</p>
-                    <button onClick ={()=> handleDelete(panier.id, panier.product_id)}> supprimer</button>
-                </div>
+            {state.cart.map((product,i)=>{
+                return(
+                <Fragment key={i}>
+                    <div>
+                        <p>title : {product.title}</p>
+                        <p>descriptif : {product.descriptif}</p>
+                        <p>{product.prix}€</p>
+                        <button onClick ={()=> removeCart(product)}>Retirer du panier</button>
+                    </div>
+                </Fragment>
                 )
-            })}
-            <div>TOTAL = </div>
-            <button> Valider mon panier</button>
-        </Fragment>       
+                })}
+                <button onClick={submitCart}>Valider panier</button>
+                
+        </Fragment>
         )
 }    
-export default Cart     
+export default Cart
+
+
+
+

@@ -28,9 +28,8 @@ const AddArticle = ()=> {
             const files = {...e.target.image.files};
             
             dataFile.append('files', files[0], files[0].name)
-            
-            dataFile.append('title', addArticleData.descriptif)
-            dataFile.append('descriptif', addArticleData.title)
+            dataFile.append('title', addArticleData.title)
+            dataFile.append('descriptif', addArticleData.descriptif)
             dataFile.append('prix', addArticleData.prix)
             
             

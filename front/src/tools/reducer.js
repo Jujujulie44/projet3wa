@@ -1,12 +1,6 @@
 const reducer = (state, action) =>{
     
     switch(action.type){
-    
-        case 'INCREMENTER':
-            return {
-                ...state,
-                count:state.count + action.payload,
-            }
                 
         case 'ADD_DATA':
             return {
@@ -25,11 +19,21 @@ const reducer = (state, action) =>{
                 
                 isLogged: true
             } 
+            
+            // ici quand le user est connecté, enlever "se connecter" de la Nav 
                 
         case 'LOGOUT' : 
             return {
                 ...state,
                 user:{isLogged:false},
+                isLogged:false,
+                cart:[]
+            }
+            
+        case 'UPDATE_USER' : 
+            return {
+                ...state,
+                user:{...state.user, ...action.payload},
                 isLogged:false
             
             }
@@ -37,19 +41,12 @@ const reducer = (state, action) =>{
         // Ajoute un élément dans le panier :
         
         case 'ADD_TO_CART' :
-            const data = state.cart.map(e => {
-                if(e.product === action.payload.product){
-                    const product = e
-                    product.quantite = product.quantite + action.payload.quantite
-                    return product
-                }
-                return e
-            })
             return {
                 ...state,
-                // cart : [...state.cart, action.payload],
-                cart : data,
+                cart:[...action.payload]
             }
+        
+        
         // permet d'écraser toutes les données du panier
         case 'INIT_CART' :
             return {
@@ -57,12 +54,13 @@ const reducer = (state, action) =>{
                 cart : action.payload,
             }
             
-        case 'REMOVE_ITEM_FROM_CART' :
-            return {
-                ...state,
-                cart : action.payload
-            }
-        
+        case 'REMOVE_CART':
+            return{
+                ...state,                    
+                cart : []
+                };    
+            
+    
         case 'ALL_PRODUCTS' :
             return {
                 ...state,

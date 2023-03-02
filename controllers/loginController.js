@@ -2,8 +2,16 @@ import {asyncQuery} from "../config/database.js"
 import bcrypt from "bcrypt"
 import {generateToken} from "../config/token.js"
 
+const getCartId = async (user_id) => {
+    const sql = "SELECT id FROM panier WHERE user_id = ?"
+    const data = await asyncQuery(sql, [user_id])
+    console.log(data)
+    return data[0].id
+}
+
 
 const generateResponse = async (userDataSQL) => {
+    const cartId = await getCartId(userDataSQL.id) || null
     // ID du role Admin en BDD
     const ADMIN_ROLE_ID = 2
     // verrifie si le user est admin return true OR false
@@ -14,13 +22,13 @@ const generateResponse = async (userDataSQL) => {
         nom:userDataSQL.nom,
         prenom:userDataSQL.prenom,
         email:userDataSQL.email,
-        
+        cartId,
         user:true,
         admin
     }
     try {
         const token = await generateToken(userData)
-        return {response:true, admin, token, username : userData.email} // utilise l'adresse email comme username
+        return {response:userData, admin, token} // utilise l'adresse email comme username
     } catch(err){
         console.log(err)
         return

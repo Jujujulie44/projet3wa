@@ -29,6 +29,8 @@ const EditArticle = () => {
         e.preventDefault()
         if(inputCheck(article.title) && inputCheck(article.descriptif)){
             axios.post(`${BASE_URL}/editArticle`,{...article})
+            .then(res => console.log(res))
+            .catch(e => console.log(e))
         } 
     }
     

@@ -26,12 +26,6 @@ const AllArticle = () => {
         navigate(`/editArticle/${id}`)
     }
     
-    const deletedPicture = (id) => {
-        console.log(id)
-        axios.post((`${BASE_URL}/deletePictureById`),{id})
-        
-    }
-    
     const editPicture = (id) => {
         console.log(id)
         navigate(`/editPicture/${id}`)
@@ -39,22 +33,25 @@ const AllArticle = () => {
     
     
     return (
-        <div>
+        <div className="container-products">
             {articles.map((article, i) => {
                 return(
-                    <div key={i}>
-                        
-                        <p>id:{article.id}</p>
-                        <p><NavLink to={`/editArticle/${article.id}`}>titre:{article.title}</NavLink></p>
-                        <p>image: <img src={`${BASE_URL}/img/${article.url}`} alt="" /></p>
-                        <p><NavLink to={`/editPicture/${article.id}`}></NavLink></p>
-                        <button onClick={() => deletedPicture(article.id)}>Supprimer l'image</button>
+                    <div key={i} className="card-product">
+                        <div className="product-img">
+                            <img className='product-img' src={`${BASE_URL}/img/${article.url}`} alt="" />
+                        </div>
                         <button onClick={() => editPicture(article.id)}>modifier l'image</button>
-                        <p>descriptif:{article.descriptif}</p>
-                        <p>prix:{article.prix}</p>
-                        <button onClick={() => deletedArticle(article.id)}>Supprimer</button>
-                        <button onClick={() => editArticle(article.id)}>modifier</button>
+                        <NavLink to={`/editPicture/${article.id}`}></NavLink>
+                        <div className="body-product">
+                        <h3 className="title-product">{article.title}</h3>
+                        <p className="description-product">{article.descriptif}</p>
+                        <p className="description-product">{article.prix}€</p>
+                        <div className="footer-card">
+                        <button className="btn-product" onClick={() => deletedArticle(article.id)}>Supprimer l'article</button>
+                        <button className="btn-product" onClick={() => editArticle(article.id)}>modifier l'article</button>
+                        </div>
                     </div>
+                </div>
                 )
             })}
         </div>    

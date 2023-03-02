@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import "./css/style.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import Nav from "./components/Nav";
@@ -6,7 +6,7 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import UploadFile from "./components/UploadFile";
 import Deconnexion from "./components/Deconnexion";
-import PrivateRoute from "./components/PrivateRoute";
+// import PrivateRoute from "./components/PrivateRoute";
 
 
 import AddArticle from "./components/AddArticle";
@@ -20,7 +20,10 @@ import EditUser from "./components/EditUser";
 import EditPicture from "./components/EditPicture"; 
 import Profil from "./components/Profil"; 
 
+import UserArticle from "./components/UserArticle";
 import Cart from "./components/Cart"; 
+import UpDateUser from "./components/UpDateUser";
+import SuccessCommande from "./components/SuccessCommande";
 
 import Header from "./components/Header";
 
@@ -52,8 +55,10 @@ function App() {
                 
                 <Route path="/editPicture/:id" element={<EditPicture />} />
                 
-                <Route path ="/Cart" element={<Cart />} />
-                
+                <Route path="/Cart" element={<Cart />} />
+                <Route path="/UserArticle" element={<UserArticle />} />
+                <Route path="/UpDateUser" element={<UpDateUser />} />
+                <Route path="/SuccessCommande" element={<SuccessCommande />} />
                 
                 <Route path="*" element={<Error404 />} />
             </Routes>

@@ -10,7 +10,6 @@ const Login = () => {
     const initialState = {email:'',password:''};
     const [info, setInfo] = useState(initialState);
     const [state, dispatch] = useContext(StoreContext);
-    const [login, setLogin]= useState (false);
     const [buttonText, setButtonText] = useState("Connexion");
     const navigate = useNavigate();
 
@@ -30,19 +29,18 @@ const Login = () => {
             
             axios.post(`${BASE_URL}/login`,{password:info.password, email:info.email})
             .then(res => {
-                console.log(res.data.response.user)
+                console.log(res.data.response)
                 
                     if(res.data.response.response) {
                         
                         dispatch ({
                             type: 'LOGIN',
-                            payload: res.data.response.user
-                    })
+                            payload: res.data.response.response
+                        })
                     
                     localStorage.setItem('jwtToken', res.data.response.token)
                     axios.defaults.headers.common['Authorization'] = 'Bearer '+res.data.response.token
                     setInfo(initialState);
-                    setLogin(true)
                     navigate("/profil")
                     
                     // Message de bienvenue personnalisé

@@ -25,7 +25,8 @@ import getUserByIdController from "../controllers/getUserByIdController.js";
 
 import getCartController from "../controllers/getCartController.js";
 import deleteCartController from "../controllers/deleteCartController.js";
-
+import deleteProductCartController from "../controllers/deleteProductCartController.js";
+import addCartController from "../controllers/addCartController.js";
 
 
 
@@ -45,7 +46,7 @@ router.post("/deletePictureById", deletePictureByIdController);
 router.post("/addArticle", middlewareUploadFile, addArticleController);
 router.post("/getArticleById", getArticleByIdController);
 router.post("/articleDetail", getArticleDetailController);
-router.post("/editArticle", middlewareUploadFile, editArticleController);
+router.post("/editArticle", editArticleController);
 router.post("/deleteArticle", deleteArticleController);
 router.get("/getArticle", getArticleController);
 
@@ -55,7 +56,9 @@ router.post("/deleteUserById", deleteUserByIdController);
 router.post("/editUserById", editUserByIdController);
 router.post("/getUserById", getUserByIdController);
 
-router.get("/getCart", getCartController);
+router.post("/addCart", addCartController);
+router.post("/getCart", getCartController);
 router.post("/deleteCart", deleteCartController);
+router.post("/deleteProductCart", deleteProductCartController);
 
 export default router;

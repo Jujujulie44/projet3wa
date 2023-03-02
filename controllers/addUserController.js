@@ -12,6 +12,7 @@ const emailExist  = async (email) => {
 
 export default async (req, res) => {
         const saltRounds = 10
+        const sqlPanier = "INSERT INTO panier (user_id) VALUES (?)"
         const sql = "INSERT INTO users (nom, prenom, email, password, role_id) VALUES (?,?,?,?,1)"
         const {nom, prenom, email, password} = req.body
         
@@ -42,9 +43,10 @@ export default async (req, res) => {
             
             // on fait la requete
             const createUser = await asyncQuery(sql,paramsSql)
+            const createPanier = await asyncQuery(sqlPanier, [createUser.insertId])
             
             // on retourn la reponse
-            return res.json({response:createUser})
+            return res.json({response:createPanier})
         }catch(err){
             console.log(err)
             return res.json({error:err})
