@@ -9,7 +9,7 @@ const Login = () => {
     
     const initialState = {email:'',password:''};
     const [info, setInfo] = useState(initialState);
-    const [state, dispatch] = useContext(StoreContext);
+    const [_, dispatch] = useContext(StoreContext);
     const [buttonText, setButtonText] = useState("Connexion");
     const navigate = useNavigate();
 
@@ -29,9 +29,9 @@ const Login = () => {
             
             axios.post(`${BASE_URL}/login`,{password:info.password, email:info.email})
             .then(res => {
-                console.log(res.data.response)
+                console.log(res)
                 
-                    if(res.data.response.response) {
+                    if(res.data.response && res.data.response.response) {
                         
                         dispatch ({
                             type: 'LOGIN',
@@ -43,11 +43,9 @@ const Login = () => {
                     setInfo(initialState);
                     navigate("/profil")
                     
-                    // Message de bienvenue personnalisé
-                    // const userEmail = res.data.response.username
-                    // const welcomeMessage = `Bonjour ${userEmail}, bienvenue sur mon site !`
                     
                     } else {
+                        
                         alert("Email ou mot de passe erroné")
                     }
                 })

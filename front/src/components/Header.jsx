@@ -13,12 +13,14 @@ const Header = () => {
     
     return (
         <Fragment>
+        
             <header>
             	<div className="logo" >
                    	<h1>Ficelles et Messages</h1>
                 </div>
+                <Nav />
     		</header>
-    		<Nav /> 
+    		 
         </Fragment>
         )
 }

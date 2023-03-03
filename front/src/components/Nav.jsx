@@ -1,4 +1,3 @@
-
 import { NavLink } from "react-router-dom";
 import {useEffect, useContext, Fragment} from 'react';
 import axios from 'axios';
@@ -16,58 +15,66 @@ const Nav = (props) => {
   }, [])
   
   return (
-    <Fragment>
+  
       <nav className='navbar'>
-        <ul>
         {state.user.admin && (
-        <div className="nav-links">
+          <div className='nav-links'>
+            <ul>
+              <li>
+                <NavLink to="/addArticle">Ajouter un produit</NavLink>
+              </li>
+              
+              <li>
+                <NavLink to="/allArticle">Afficher tous les produits</NavLink>
+              </li>
+              
+              <li>
+                <NavLink to="/uploadFile">Télécharger une image</NavLink>
+              </li>
+            </ul>
+          </div>
+      )}
+        <div className='nav-links'>
+          <ul>
             <li>
-              <NavLink to="/addArticle">Ajouter un produit</NavLink>
+              <NavLink to="/">Ma Maison</NavLink>
             </li>
             
             <li>
-              <NavLink to="/allArticle">Afficher tous les produits</NavLink>
+              <NavLink to="/userArticle">Mes tirages</NavLink>
             </li>
             
-            <li>
-              <NavLink to="/uploadFile">Télécharger une image</NavLink>
-            </li>
-        </div>
-        )}
-        <div className="nav-links">
-          <li>
-            <NavLink to="/">Ma Maison</NavLink>
-          </li>
-          <li>
-            <NavLink to="/userArticle">Mes tirages</NavLink>
-          </li>
         {state.user.isLogged === false && (
-        <Fragment>
-          <li>
-            <NavLink to="/addUser">S'inscrire</NavLink>
-          </li>
-          <li>
-            <NavLink to="/login">Se connecter</NavLink>
-          </li>
+          <Fragment>
+          
+            <li>
+              <NavLink to="/addUser">S'inscrire</NavLink>
+            </li>
+            
+            <li>
+              <NavLink to="/login">Se connecter</NavLink>
+            </li>
           </Fragment>
         )}
         {state.user.isLogged === true && (
-        <Fragment>
-          <li>
-            <NavLink to="/Cart">Panier</NavLink>
-          </li>
-          <li>
-            <NavLink to="/profil">Profil</NavLink>
-          </li>
-          <li>
-            <NavLink to="/logout">Se déconnecter</NavLink>
-          </li>
-        </Fragment>
+          <Fragment>
+          
+            <li>
+              <NavLink to="/Cart">Panier</NavLink>
+            </li>
+            
+            <li>
+              <NavLink to="/profil">Profil</NavLink>
+            </li>
+            
+            <li>
+              <NavLink to="/logout">Se déconnecter</NavLink>
+            </li>
+          </Fragment>
           )}
-          </div>
-        </ul>
+            </ul>
+         </div>
       </nav>
-    </Fragment>
       );
     };
 

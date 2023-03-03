@@ -23,9 +23,10 @@ const Cart =() => {
             //r remove the dependency array  react-hooks/exhaustive-deps     
     
     
-    // supprimer un produit dans la table panier
+    // supprime un produit dans la table panier
+    
     const removeCart = (product) => {
-        axios.post(`${BASE_URL}/deleteProductCart`,{panier_id:state.user.cartId, product_id:product.id})// TODO => {panier_id, product_id}
+        axios.post(`${BASE_URL}/deleteCart`,{panier_id:state.user.cartId, product_id:product.id})// TODO => {panier_id, product_id}
         .then(() => {
             dispatch({ 
                 type: "INIT_CART",
@@ -37,15 +38,6 @@ const Cart =() => {
     console.log(state);
     
     const submitCart = () => {
-        /*
-            1) supprimer tout les element du panier (Reducer)(dispatch => REMOVE_CART)
-            2) supprimer tout les element du panier (BDD)(deleteCartController)
-            3) rediriger l'utilisateur sur une page de confirmation (useNavigate)
-        */
-        
-        // axios.post(`${BASE_URL}/addCart`, {product_id : state.cart.id, panier_id : state.user.panier_id})
-        // .then(res => console.log(res))
-        // .catch(err => console.log(err));
         
         axios.post(`${BASE_URL}/deleteCart`,{panier_id:state.user.cartId})
         .then(res => {
@@ -61,17 +53,26 @@ const Cart =() => {
             <h1> Mon Panier</h1>
             {state.cart.map((product,i)=>{
                 return(
-                <Fragment key={i}>
-                    <div>
-                        <p>title : {product.title}</p>
-                        <p>descriptif : {product.descriptif}</p>
-                        <p>{product.prix}€</p>
-                        <button onClick ={()=> removeCart(product)}>Retirer du panier</button>
+                <Fragment >
+                <div className="container-products">
+                    <div key={i} className="card-product">
+                        <div className="product-img">
+                            <img className='product-img' src={`${BASE_URL}/img/${product.url}`} alt="" />
+                        </div>
+                        <div className="body-product">
+                            <h3 className="title-product">{product.title}</h3>
+                            <p className="description-product"> {product.descriptif}</p>
+                            <p className="description-product">{product.prix}€</p>
+                            <div className="footer-card">
+                                <button className="btn-product" onClick ={()=> removeCart(product)}>Retirer du panier</button>
+                            </div>
+                        </div>
                     </div>
+                </div>
                 </Fragment>
                 )
                 })}
-                <button onClick={submitCart}>Valider panier</button>
+                <button className="btn-product" onClick={submitCart}>Valider panier</button>
                 
         </Fragment>
         )
