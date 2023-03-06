@@ -7,9 +7,19 @@ import {NavLink} from "react-router-dom";
 
 const Profil = () => {
     
-    const [state] = useContext(StoreContext)
+    const [state,dispatch] = useContext(StoreContext)
     
     console.log(state)
+
+    const deleteAccount = () => {
+        axios.post(`${BASE_URL}/deleteUserById`,{id:state.user.id})
+        .then((res) => {
+            dispatch({type:"LOGOUT"})
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
     
     
     return (
@@ -26,7 +36,7 @@ const Profil = () => {
                         <NavLink to="/upDateUser"><button>Modifier mes informations</button></NavLink>
                             
                         <p>vous désirez supprimer votre compte?</p>
-                        <button onClick={null}> Supprimer mon compte</button>
+                        <button onClick={deleteAccount}> Supprimer mon compte</button>
                     </div>
                 </div>    
             )}

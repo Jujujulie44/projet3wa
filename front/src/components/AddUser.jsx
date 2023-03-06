@@ -14,9 +14,9 @@ const AddUser = () => {
     
     const handleChange = (e) => {
         const {name, value} = e.target
-        if(inputCheck(value)){
+        // if(inputCheck(value)){
             setUserData({...userData,[name]:value})
-        }
+        // }
     }  
     
     const submit = (e) => {

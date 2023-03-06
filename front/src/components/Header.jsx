@@ -1,6 +1,3 @@
-
-// import menuBtn32 from "../image/menu-btn32.png";
-// import livrePanier from "../image/livre-panier.png";
 // import {BASE_URL} from "../tools/constante.js";
 import Nav from "./Nav.jsx";
 // import {NavLink} from "react-router-dom";
@@ -24,10 +21,6 @@ const Header = () => {
         </Fragment>
         )
 }
-
-// <img className="menu-burger"src={menuBtn32} alt="menu burger" />
-// <img className="livre-panier" src={livrePanier} alt="livre panier" />
-
 
 
 

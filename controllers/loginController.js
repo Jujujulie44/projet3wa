@@ -41,8 +41,9 @@ export default async (req, res) => {
     const paramsSql = [email]
 
     const result = await asyncQuery(sql, paramsSql)
-    if(!result){
-        res.status(401).json({error: "Identifiant ou mdp non valide"})
+    console.log(result)
+    if(result.length === 0){
+        return res.status(401).json({error: "Identifiant ou mdp non valide"})
     }
     
     try {

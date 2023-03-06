@@ -1,79 +1,70 @@
 import { NavLink } from "react-router-dom";
-import {useEffect, useContext, Fragment} from 'react';
-import axios from 'axios';
+import {useContext, Fragment, useState} from 'react';
 import {StoreContext} from "../tools/context.js"
+import livrePanier from "../image/livre-panier.png";
+import menuBtn32 from "../image/menu-btn32.png";
 
 
 const Nav = (props) => {
-   const [state] = useContext(StoreContext)
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    /*etat à false quand le menu est fermé*/
+    const [state] = useContext(StoreContext)
   
-   useEffect(() => {
-    const jwtToken = localStorage.getItem("jwtToken")
-    if (!axios.defaults.headers.common["Authorization"] && jwtToken) {
-      axios.defaults.headers.common["Authorization"] = `Bearer ${jwtToken}`
-    }
-  }, [])
-  
-  return (
-  
-      <nav className='navbar'>
-        {state.user.admin && (
-          <div className='nav-links'>
-            <ul>
-              <li>
-                <NavLink to="/addArticle">Ajouter un produit</NavLink>
-              </li>
-              
-              <li>
-                <NavLink to="/allArticle">Afficher tous les produits</NavLink>
-              </li>
-              
-              <li>
-                <NavLink to="/uploadFile">Télécharger une image</NavLink>
-              </li>
-            </ul>
-          </div>
-      )}
-        <div className='nav-links'>
-          <ul>
-            <li>
-              <NavLink to="/">Ma Maison</NavLink>
-            </li>
-            
-            <li>
-              <NavLink to="/userArticle">Mes tirages</NavLink>
-            </li>
-            
-        {state.user.isLogged === false && (
-          <Fragment>
-          
-            <li>
-              <NavLink to="/addUser">S'inscrire</NavLink>
-            </li>
-            
-            <li>
-              <NavLink to="/login">Se connecter</NavLink>
-            </li>
-          </Fragment>
-        )}
-        {state.user.isLogged === true && (
-          <Fragment>
-          
-            <li>
-              <NavLink to="/Cart">Panier</NavLink>
-            </li>
-            
-            <li>
-              <NavLink to="/profil">Profil</NavLink>
-            </li>
-            
-            <li>
-              <NavLink to="/logout">Se déconnecter</NavLink>
-            </li>
-          </Fragment>
-          )}
-            </ul>
-         </div>
+    return( 
+        <nav className='navbar' >
+            <div className={`nav-links ${mobileMenuOpen ? 'mobile-menu' : ''}`}>
+                <ul>
+                    <li>
+                        <NavLink onClick={() => setMobileMenuOpen(false)} to="/">Ma Maison</NavLink>
+                    </li>
+                
+                    <li>
+                    <NavLink onClick={() => setMobileMenuOpen(false)} to="/userArticle">Mes tirages</NavLink>
+                    </li>
+                    {state.user.admin && (
+                        <Fragment>
+                            <li>
+                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/addArticle">Ajouter un produit</NavLink>
+                            </li>
+                            
+                            <li>
+                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/allArticle">Afficher tous les produits</NavLink>
+                            </li>
+                            
+                            <li>
+                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/uploadFile">Télécharger une image</NavLink>
+                            </li>
+                        </Fragment>
+                    )}
+                
+                    {state.user.isLogged === false && (
+                        <Fragment>
+                            <li>
+                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/addUser">S'inscrire</NavLink>
+                            </li>
+                            
+                            <li>
+                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/login">Se connecter</NavLink>
+                            </li>
+                        </Fragment>
+                    )}
+                    {state.user.isLogged === true && (
+                        <Fragment>
+                            <li>
+                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/profil">Profil</NavLink>
+                            </li>
+                    
+                            <li>
+                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/logout">Se déconnecter</NavLink>
+                            </li>
+                        </Fragment>
+                    )}
+                </ul>
+            </div>
+            <div>
+                <NavLink to="/Cart" onClick={() => setMobileMenuOpen(false)}><img className="livre-panier" src={livrePanier} alt="livre panier" /></NavLink>
+                <img onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="menu-burger"src={menuBtn32} alt="menu burger" />
+            </div>
       </nav>
       );
     };
