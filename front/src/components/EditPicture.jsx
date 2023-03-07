@@ -1,9 +1,13 @@
 import {useParams} from "react-router-dom"
 import axios from "axios"
 import {BASE_URL} from "../tools/constante.js"
+import { useNavigate } from "react-router-dom";
+
 
 const EditPicture = () => {
     const {id} = useParams()
+    const navigate = useNavigate()
+    
     
     const submit = (e) => {
         e.preventDefault()
@@ -15,9 +19,12 @@ const EditPicture = () => {
 
         
         axios.post(`${BASE_URL}/editPictureById`,dataFile)
-            .then(res => console.log(res))
+            .then(res => navigate(`/allArticle`))
             .catch(err => console.log(err))
         }
+        
+        
+        
     
     return (
         <form onSubmit={submit} encType="multipart/form-data">

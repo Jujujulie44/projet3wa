@@ -28,12 +28,9 @@ const Nav = (props) => {
                             </li>
                             
                             <li>
-                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/allArticle">Afficher tous les produits</NavLink>
+                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/allArticle">Tous les produits</NavLink>
                             </li>
                             
-                            <li>
-                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/uploadFile">Télécharger une image</NavLink>
-                            </li>
                         </Fragment>
                     )}
                 
@@ -51,7 +48,7 @@ const Nav = (props) => {
                     {state.user.isLogged === true && (
                         <Fragment>
                             <li>
-                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/profil">Profil</NavLink>
+                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/profil">Mon Profil</NavLink>
                             </li>
                     
                             <li>

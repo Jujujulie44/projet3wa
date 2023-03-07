@@ -1,5 +1,5 @@
 /******FONT*****/ 
-
+/*TITRES h1*/
 @import url('https://fonts.cdnfonts.com/css/mommyday');
 
 /******************GENERALITES**************/ 
@@ -7,6 +7,8 @@
 
 *{
   box-sizing: border-box;
+  /*width: 90%;*/
+	/*margin: auto;*/
 }
 
 .App {
@@ -46,6 +48,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+/************* TITRES PRINCIPAUX************/
+h1, h2{
+  font-family: 'Mommyday', sans-serif;
+  text-align:center;
+  
 }
 
 /***************HEADER****************************/ 
@@ -93,6 +101,7 @@ header {
   text-decoration: none;
   display: block;
   width: max-content;
+  font-family: 'Mommyday', sans-serif;
 }
 
 .navbar .nav-links ul li a:hover {
@@ -119,6 +128,110 @@ header {
   top: 40px; 
   cursor: pointer;
 }
+/*****************CITATION*****************/ 
+blockquote {
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	margin: 3rem 5rem;
+	padding: 2rem 2rem;
+}
+
+q, 
+cite {
+	display: block;
+	line-height: 1.5;
+}
+
+q {
+	font-style: italic;
+	margin-bottom: 1rem;
+	font-family: 'Mommyday', sans-serif;
+}
+
+cite {
+	font-style: normal;
+	font-size: 2rem;
+	font-family: 'Mommyday', sans-serif;
+}
+
+/****************** ARTICLE HOME ************/
+h2 {
+	text-align: center;
+}
+
+article img {
+	float: left;
+	border-radius : 100%;
+	width: 30%;
+}
+
+.presentation {
+	padding-top: 70px;
+	text-align: center;
+	margin: 20px;
+	/*margin-left: 300px;*/
+	/*background-color:red;*/
+	line-height: 1.5em;
+	font-size:1rem;
+}
+
+.clear {
+  clear: both;
+}
+
+.presentation2 p{
+	padding-top: 30px;
+	text-align: center;
+	margin: 20px;
+	line-height: 1.5em;
+	font-size:1rem;
+	
+}
+
+
+/**************FOOTER**************/
+footer{
+    background-image: url("./image/mystery_1920.jpg");
+    background-size: cover;
+    background-position:bottom;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+}
+
+.foot{
+    backdrop-filter: blur(2px);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius:1em;
+    padding:0.5em;
+}
+.foot p, .foot h3{
+    text-align:center;
+    margin: 1em;
+}
+
+.networks{
+    display:flex;
+    justify-content:center;
+}
+
+.fa-brands{
+    font-size:1.5em;
+    color:#fff;
+    margin: 0 1rem;
+}
+
+.legal-notice{
+  text-align:center;
+  padding-top:1rem;
+  text-decoration:none;
+  color:white;
+}
+
+
+
 
 
 

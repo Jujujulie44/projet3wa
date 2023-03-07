@@ -4,7 +4,7 @@ import axios from "axios";
 import {StoreContext} from "../tools/context.js"
 import { useNavigate } from "react-router-dom";
 
-const Cart =() => {
+const Cart = () => {
     
     const [state, dispatch] = useContext(StoreContext)
     const navigate = useNavigate()
@@ -19,9 +19,7 @@ const Cart =() => {
                dispatch({type:"INIT_CART", payload:res.data.result.cartProduct})
            })
         } 
-    },[]) // Line 24:7:  React Hook useEffect has missing dependencies: 'dispatch' and 'state.products.length'. Either include them o
-            //r remove the dependency array  react-hooks/exhaustive-deps     
-    
+    },[state.cart.length, state.user.cartId, dispatch]); 
     
     // supprime un produit dans la table panier
     
@@ -34,8 +32,6 @@ const Cart =() => {
             });
         })
     };
-    
-    console.log(state);
     
     const submitCart = () => {
         
@@ -53,29 +49,28 @@ const Cart =() => {
             <h1> Mon Panier</h1>
             {state.cart.map((product,i)=>{
                 return(
-                <Fragment >
-                <div className="container-products">
-                    <div key={i} className="card-product">
-                        <div className="product-img">
-                            <img className='product-img' src={`${BASE_URL}/img/${product.url}`} alt="" />
-                        </div>
-                        <div className="body-product">
-                            <h3 className="title-product">{product.title}</h3>
-                            <p className="description-product"> {product.descriptif}</p>
-                            <p className="description-product">{product.prix}€</p>
-                            <div className="footer-card">
-                                <button className="btn-product" onClick ={()=> removeCart(product)}>Retirer du panier</button>
+                    <Fragment key={i} >
+                        <div className="container-products">
+                            <div className="card-product">
+                                <div className="product-img">
+                                    <img className='product-img' src={`${BASE_URL}/img/${product.url}`} alt="" />
+                                </div>
+                                <div className="body-product">
+                                    <h3 className="title-product">{product.title}</h3>
+                                    <p className="description-product"> {product.descriptif}</p>
+                                    <p className="description-product">{product.prix}€</p>
+                                    <div className="footer-card">
+                                    <button className="btn-product" onClick ={()=> removeCart(product)}>Retirer du panier</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                </Fragment>
+                    </Fragment>
                 )
-                })}
-                <button className="btn-product" onClick={submitCart}>Valider panier</button>
-                
+            })}
+            <button className="btn-product" disabled={state.cart.length <= 0} onClick={submitCart}>Valider panier</button>
         </Fragment>
-        )
+    )
 }    
 export default Cart
 

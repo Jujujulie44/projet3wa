@@ -16,10 +16,8 @@ const Login = () => {
     
     const handleChange = (e) => {
         const {name,value} = e.target
-        //  if(inputCheck(value)){
             setInfo({...info, [name]:value})
             setButtonText("Se connecter")
-        // }
     }
     
     const submit = (e) => {
@@ -41,7 +39,7 @@ const Login = () => {
                     localStorage.setItem('jwtToken', res.data.response.token)
                     axios.defaults.headers.common['Authorization'] = 'Bearer '+res.data.response.token
                     setInfo(initialState);
-                    navigate("/profil")
+                    navigate("/")
                     
                     
                     } else {

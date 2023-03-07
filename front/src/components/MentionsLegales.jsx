@@ -1,7 +1,7 @@
 const MentionsLegales = () => {
     return(
         <div>
-            <h1>MENTIONS LÉGALES</h1>
+            <h1>Mentions Légales</h1>
             <p>
                 Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l'économie numérique, 
                 il est précisé aux utilisateurs du site PresseMia l'identité des différents intervenants dans le cadre de sa réalisation 
@@ -10,8 +10,8 @@ const MentionsLegales = () => {
             
             <h2>Edition du site</h2>
             <p>
-                Le présent site, accessible à l’URL http://juliebannier.ide.3wa.io:3000/ (le « Site »), est édité par :
-                JULIE BANNIER, résidant 60 Rue du Lieutenant 44400 REZE, de nationalité Française (France), né(e) le 01/01/1991,
+                Le présent site, accessible à l’URL http://julieandre.ide.3wa.io:3000/ (le « Site »), est édité par :
+                JULIE ANDRE, résidant 2 rue du Haut Launay 4300 NANTES, de nationalité Française (France), né(e) le 22/05/1984,
             </p>
             
             <h2>Hébergement</h2>
@@ -21,13 +21,13 @@ const MentionsLegales = () => {
             
             <h2>Directeur de publication </h2>
             <p>
-                Le Directeur de la publication du Site est JULIE BANNIER.
+                Le Directeur de la publication du Site est JULIE ANDRE.
             </p>
             
             <h2>Nous contacter</h2>
             <p>Par téléphone : +33607080900</p>
-            <p>Par email : bannier@julie.com</p>
-            <p>Par courrier : 60 Rue du Lieutenant 44400 REZE</p>
+            <p>Par email : andre@julie.com</p>
+            <p>Par courrier : 2 rue du Haut Launay, 44300 NANTES</p>
             
             <h2>Nous contacter</h2>
             <p>

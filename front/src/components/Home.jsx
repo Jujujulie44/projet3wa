@@ -30,7 +30,29 @@ const Home = () => {
         			Issue d'une famille où l'ésotérisme et la spiritualité font partie intégrante de nos vies, j'ai étudié dès le plus jeune âge d'abord le Tarot de Marseille et Celtique, 
         			ainsi que les Oracles Gé et de Belline.</p>
     		    </div>
+    		    
+    		    <div className="presentation2">
+					<h2>Pourquoi Ficelles et Messages ?</h2>
+					
+					<p>Selon la légende japonaise, nos vies sont reliées d'un fil rouge invisible et indestructible.
+
+					Nos chemins sont parfois semés d'embûches et il est difficile de renouer avec notre destinée.
+					Les Guidances vous offriront des clefs pour ouvrir les portes de votre évolution, alors que celles-ci vous semblaient scellées, obstruées.
+					
+					Dans nos vies parfois tumultueuses ou bloquées, nous sommes face à des choix, des peurs, des interrogations.
+					
+					</p>
+					
+					<h2>Vous êtes peut- être à la croisée des chemins et vos blocages résistent, conspirent contre vous.</h2>
+
+					<p>Vous avez besoin d'être balisés, d'être guidés.</p>
+					
+					
+				</div>
     		</article>
+    		
+    		<div className="clear"></div>
+		
 		</Fragment>  	
     </Fragment>
     )
