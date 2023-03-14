@@ -50,25 +50,32 @@ const Cart = () => {
             {state.cart.map((product,i)=>{
                 return(
                     <Fragment key={i} >
-                        <div className="container-products">
-                            <div className="card-product">
-                                <div className="product-img">
-                                    <img className='product-img' src={`${BASE_URL}/img/${product.url}`} alt="" />
-                                </div>
-                                <div className="body-product">
-                                    <h3 className="title-product">{product.title}</h3>
-                                    <p className="description-product"> {product.descriptif}</p>
-                                    <p className="description-product">{product.prix}€</p>
-                                    <div className="footer-card">
-                                    <button className="btn-product" onClick ={()=> removeCart(product)}>Retirer du panier</button>
+                        <section className="products">
+                            <div className="container-products">
+                                <div className="card-product">
+                                    <div className="product-img">
+                                        <img className='product-img' src={`${BASE_URL}/img/${product.url}`} alt="" />
+                                    </div>
+                                    <div className="body-product">
+                                        <h3 className="title-product">{product.title}</h3>
+                                        <p className="description-product"> {product.descriptif}</p>
+                                        <p className="description-product">{product.prix}€</p>
+                                        <div className="footer-card">
+                                        <button className="btn-product" onClick ={()=> removeCart(product)}>Retirer du panier</button>
+                                        
+                                        </div>
+                                        
                                     </div>
                                 </div>
+                                
                             </div>
-                        </div>
+                        </section>
+                        
                     </Fragment>
                 )
             })}
             <button className="btn-product" disabled={state.cart.length <= 0} onClick={submitCart}>Valider panier</button>
+            
         </Fragment>
     )
 }    

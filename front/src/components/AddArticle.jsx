@@ -2,14 +2,13 @@ import axios from "axios"
 import {useState} from "react";
 import {BASE_URL} from '../tools/constante.js';
 import inputCheck from "../tools/inputLength.js";
-// import { useReducer } from 'react';
+
 
 const AddArticle = ()=> {
     const [addArticleData, setAddArticleData]= useState ({
         title:'', 
         descriptif:'', 
         prix:0
-    // pour vider les input : divForDelete.remove()?
     
     })
     

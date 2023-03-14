@@ -1,14 +1,21 @@
 /******FONT*****/ 
+
 /*TITRES h1*/
+
 @import url('https://fonts.cdnfonts.com/css/mommyday');
+/*BODY*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 /******************GENERALITES**************/ 
 
 
 *{
   box-sizing: border-box;
-  /*width: 90%;*/
-	/*margin: auto;*/
+}
+
+body{
+  background: #f1f1f1;
+  font-family: 'Dancing Script', cursive;
 }
 
 .App {
@@ -49,7 +56,10 @@
     transform: rotate(360deg);
   }
 }
-/************* TITRES PRINCIPAUX************/
+
+
+
+/*************TITRES PRINCIPAUX************/
 h1, h2{
   font-family: 'Mommyday', sans-serif;
   text-align:center;
@@ -72,6 +82,8 @@ header {
     margin-bottom:1.5em;
     padding-top:2.0em;
     font-family: 'Mommyday', sans-serif;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
 }
 
 /*******************NAVBAR***************/
@@ -129,6 +141,7 @@ header {
   cursor: pointer;
 }
 /*****************CITATION*****************/ 
+
 blockquote {
 	font-size: 1em;
 	font-weight: bold;
@@ -156,22 +169,19 @@ cite {
 }
 
 /****************** ARTICLE HOME ************/
-h2 {
-	text-align: center;
-}
 
-article img {
-	float: left;
+
+.photo-portrait {
 	border-radius : 100%;
 	width: 30%;
+	margin: auto;
+	display: block;
 }
 
 .presentation {
 	padding-top: 70px;
 	text-align: center;
 	margin: 20px;
-	/*margin-left: 300px;*/
-	/*background-color:red;*/
 	line-height: 1.5em;
 	font-size:1rem;
 }
@@ -188,6 +198,75 @@ article img {
 	font-size:1rem;
 	
 }
+
+
+/*******************CARD**************/ 
+
+.container{
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+  transition: 0.3s;
+  animation: ease-in;
+}
+
+.card-container{
+  width: 300px;
+  overflow: hidden;
+  box-shadow: 0px 0px 15px 5px;
+  padding-bottom: 20px;
+  margin-bottom:40px;
+  
+}
+
+.card-container:hover {
+  transform: scale(1.1) ;
+  box-shadow: 0px 0px 15px 0px;
+}
+
+.image-container img{
+  overflow:hidden;
+  height: 300px;
+}
+
+.card-content{
+  margin: 1rem;
+  margin-top: 0.5rem;
+}
+
+.card-title,
+.card-body{
+  margin: 0;
+  padding: 0;
+  text-align:center;
+}
+
+.card-title{
+  margin-bottom: 0.5rem;
+  text-align:center;
+}
+
+.btn-product{
+  display: flex;
+  justify-content: center;
+  
+}
+
+.btn-product button {
+  padding: 0.5rem;
+  background-color: white;
+  border: none;
+  transition: 0.2s;
+  text-transform: uppercase;
+  
+}
+
+.btn-product button:hover {
+  background:purple;
+  color: white;
+}
+
+
 
 
 /**************FOOTER**************/
@@ -285,5 +364,8 @@ footer{
 	.logo h1{
     margin:1em 0 0 0;
 	}
+	
+	
+	
 	
 }

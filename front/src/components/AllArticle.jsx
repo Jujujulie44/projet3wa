@@ -1,6 +1,6 @@
 import axios from "axios";
 import {NavLink} from "react-router-dom";
-import {useState, useEffect} from "react";
+import {useState,Fragment, useEffect} from "react";
 import {BASE_URL} from "../tools/constante.js";
 import { useNavigate } from "react-router-dom";
 
@@ -22,17 +22,19 @@ const AllArticle = () => {
     }
     
     const editArticle = (id) => {
-        console.log(id)
+        
         navigate(`/editArticle/${id}`)
     }
     
     const editPicture = (id) => {
-        console.log(id)
+        
         navigate(`/editPicture/${id}`)
     }
     
     
     return (
+        <Fragment>
+        <h2>Tous les produits en stock</h2>
         <div className="container-products">
             {articles.map((article, i) => {
                 return(
@@ -40,21 +42,22 @@ const AllArticle = () => {
                         <div className="product-img">
                             <img className='product-img' src={`${BASE_URL}/img/${article.url}`} alt="" />
                         </div>
-                        <button onClick={() => editPicture(article.id)}>modifier l'image</button>
+                        <button className="btn-product" onClick={() => editPicture(article.id)}>modifier l'image</button>
                         <NavLink to={`/editPicture/${article.id}`}></NavLink>
                         <div className="body-product">
-                        <h3 className="title-product">{article.title}</h3>
-                        <p className="description-product">{article.descriptif}</p>
-                        <p className="description-product">{article.prix}€</p>
+                            <h3 className="title-product">{article.title}</h3>
+                            <p className="description-product">{article.descriptif}</p>
+                            <p className="description-product">{article.prix}€</p>
                         <div className="footer-card">
-                        <button className="btn-product" onClick={() => deletedArticle(article.id)}>Supprimer l'article</button>
-                        <button className="btn-product" onClick={() => editArticle(article.id)}>modifier l'article</button>
+                            <button className="btn-product" onClick={() => deletedArticle(article.id)}>Supprimer l'article</button>
+                            <button className="btn-product" onClick={() => editArticle(article.id)}>modifier l'article</button>
                         </div>
                     </div>
                 </div>
                 )
             })}
-        </div>    
+        </div>
+        </Fragment>
     )
 }
 

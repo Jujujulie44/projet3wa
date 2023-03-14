@@ -1,16 +1,15 @@
 import axios from "axios";
-// import {NavLink} from "react-router-dom";
 import {useEffect, Fragment, useContext} from "react";
 import {BASE_URL} from "../tools/constante.js";
-// import { useNavigate } from "react-router-dom";
 import {StoreContext} from "../tools/context.js";
 
 const UserArticle = () => {
     const [state, dispatch] = useContext(StoreContext)
-    // const navigate = useNavigate()
+    
     
     
     // récupère tous les produits stocké dans le reducer
+    
     useEffect(() => {
         if(state.products.length === 0){
             axios.get(`${BASE_URL}/getArticle`)
@@ -23,7 +22,7 @@ const UserArticle = () => {
             })
             .catch(err => console.error(err))
         }
-    },[])
+    },[dispatch, state.products.length]);
     
     
     
@@ -33,6 +32,7 @@ const UserArticle = () => {
         let data = state.cart
             
         // si le produit n'est pas dans le panier on l'ajoute
+        
         if(!productIsInCart) {
             data.push(product) 
             axios.post(`${BASE_URL}/addCart`,{product_id:product.id, panier_id:state.user.cartId}) // {product_id, panier_id}
@@ -49,33 +49,49 @@ const UserArticle = () => {
     
     return (
         <Fragment>
+        <div className="container">
             <h1>Baliser sa vie :</h1>
         	<h2>Les tirages</h2>
         <Fragment>
-        <div className="container-products">
+        
+        
+       
             {state.products.map((article, i) => {
                 return(
-                        <div key={i} className="card-product">
-                            <div className="product-img">
-                                <img className='product-img' src={`${BASE_URL}/img/${article.url}`} alt="" />
+                        <div key={i}>
+                         <div className="card-container"> 
+                         
+                            <div className="image-container">
+                                <img src={`${BASE_URL}/img/${article.url}`} alt="carte de tarot" />
                             </div>
-                            <div className="body-product">
-                                <h3 className="title-product">{article.title}</h3>
-                                <p className="description-product"> {article.descriptif}</p>
-                                <p className="description-product">{article.prix}€</p>
-                                <div className="footer-card">
-                                    <button className="btn-product" onClick={() => addToCart(article)}>Ajouter au panier</button>
+                         <div className="card-content">
+                             
+                                <div className="card-title">
+                                    <h3>{article.title}</h3>
                                 </div>
-                            </div>
+                                
+                                <div className="card-body">
+                                    <p> {article.descriptif}</p>
+                                    <p>{article.prix}€</p>
+                                </div>
+            
                         </div>
-                )
-            })}
-        </div>
+                        
+                        <div  className="btn-product">
+                            <button onClick={() => addToCart(article)}>Ajouter au panier</button>
+                        </div>
+                        
+                        </div>
+                        </div>
+                        )
+                }
+            )}
+       
         </Fragment>
+        </div>
         </Fragment>
     )
 }
 
 export default UserArticle
-
 

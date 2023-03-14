@@ -2,6 +2,8 @@ import axios from "axios"
 import {BASE_URL} from '../tools/constante.js'
 import {useState, Fragment} from "react"
 import inputCheck from "../tools/inputLength.js";
+import { useNavigate } from "react-router-dom";
+
 
 const AddUser = () => {
     const [userData, setUserData] = useState({
@@ -12,11 +14,12 @@ const AddUser = () => {
         role_id:1
     })
     
+    const navigate = useNavigate();
+    
     const handleChange = (e) => {
         const {name, value} = e.target
-        // if(inputCheck(value)){
+        
             setUserData({...userData,[name]:value})
-        // }
     }  
     
     const submit = (e) => {
@@ -33,6 +36,8 @@ const AddUser = () => {
             })
             .then(res => console.log(res))
             .catch(e => console.log(e))
+            navigate("/")
+            
         } else {
             console.log("error")
         }
