@@ -1,11 +1,21 @@
 // import {BASE_URL} from "../tools/constante.js";
 // import {NavLink} from "react-router-dom";
 import {Fragment} from "react";
+import { useNavigate } from "react-router-dom";
 // import {StoreContext} from "../tools/context.js"; 
 import photoPortrait from "../image/PhotoPortrait.jpg";
 
 
 const Home = () => {
+	
+	 const navigate = useNavigate()
+	
+	const onClick = () => {
+      
+      navigate('/userArticle');
+    };
+
+
     return(
         <Fragment>
     
@@ -50,10 +60,12 @@ const Home = () => {
 						<h2>Vous êtes peut- être à la croisée des chemins et vos blocages résistent, conspirent contre vous.</h2>
 	
 						<p>Vous avez besoin d'être balisés, d'être guidés.</p>
-						
-						
 					</div>
 	    		</article>
+	    		
+	    		<div  className="btn-product" >
+	    			<button type="button"  onClick={onClick}> voir les tirages </button>
+	    		</div>
     		
     		<div className="clear"></div>
 		

@@ -2,7 +2,7 @@ import axios from "axios"
 import {useState} from "react";
 import {BASE_URL} from '../tools/constante.js';
 import inputCheck from "../tools/inputLength.js";
-
+import { useNavigate } from "react-router-dom";
 
 const AddArticle = ()=> {
     const [addArticleData, setAddArticleData]= useState ({
@@ -11,6 +11,7 @@ const AddArticle = ()=> {
         prix:0
     
     })
+    const navigate = useNavigate()
     
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -34,6 +35,7 @@ const AddArticle = ()=> {
             
             axios.post(`${BASE_URL}/addArticle`,dataFile)
         }
+        navigate("/allArticle")
     }
     
     return(

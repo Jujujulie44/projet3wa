@@ -53,40 +53,32 @@ const UserArticle = () => {
             <h1>Baliser sa vie :</h1>
         	<h2>Les tirages</h2>
         <Fragment>
-        
-        
-       
             {state.products.map((article, i) => {
                 return(
-                        <div key={i}>
-                         <div className="card-container"> 
-                         
-                            <div className="image-container">
-                                <img src={`${BASE_URL}/img/${article.url}`} alt="carte de tarot" />
-                            </div>
-                         <div className="card-content">
-                             
-                                <div className="card-title">
-                                    <h3>{article.title}</h3>
-                                </div>
-                                
-                                <div className="card-body">
-                                    <p> {article.descriptif}</p>
-                                    <p>{article.prix}€</p>
-                                </div>
-            
+                    <div key={i}>
+                    <div className="card-wrapper">
+                        <div className="card-container"> 
+                        <div className="image-container">
+                            <img src={`${BASE_URL}/img/${article.url}`} alt="carte de tarot" />
                         </div>
-                        
-                        <div  className="btn-product">
-                            <button onClick={() => addToCart(article)}>Ajouter au panier</button>
+                        <div className="card-content">
+                        <div className="card-title">
+                            <h3>{article.title}</h3>
                         </div>
-                        
+                        <div className="card-body">
+                            <p> {article.descriptif}</p>
+                            <p>{article.prix}€</p>
                         </div>
-                        </div>
+                    </div>
+                    <div  className="btn-product">
+                        <button onClick={() => addToCart(article)}>Ajouter au panier</button>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
                         )
                 }
             )}
-       
         </Fragment>
         </div>
         </Fragment>

@@ -3,7 +3,7 @@ import axios from "axios";
 import {StoreContext} from "../tools/context.js";
 import {useContext, Fragment} from "react";
 import {NavLink} from "react-router-dom";
-
+import idea from "../image/idea.gif";
 
 const Profil = () => {
     
@@ -27,16 +27,20 @@ const Profil = () => {
             {state.user.isLogged === true && (
                 <div>
                     <h2>Bienvenue sur votre profil {state.user.prenom}!</h2>
-                    <h3>Informations :</h3>
-                    <div>
+                    <h2>Informations :</h2>
+                    <div className="info-profil">
                         <p>Nom : {state.user.nom}</p>
                         <p>Prenom : {state.user.prenom}</p>
                         <p>Email : {state.user.email}</p>
-                        
+                    <div  className="btn-product" >    
                         <NavLink to="/upDateUser"><button>Modifier mes informations</button></NavLink>
-                            
-                        <p>vous désirez supprimer votre compte?</p>
+                    </div>       
+                        <h2>vous désirez supprimer votre compte?</h2>
+                        <div  className="btn-product" >
                         <button onClick={deleteAccount}> Supprimer mon compte</button>
+                        </div>
+                        
+                        <img src={idea}  className="idea-gif"  alt="ampoule qui clignotte"/>
                     </div>
                 </div>    
             )}

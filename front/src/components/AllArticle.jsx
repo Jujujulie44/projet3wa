@@ -34,30 +34,47 @@ const AllArticle = () => {
     
     return (
         <Fragment>
+        <div className="container">
+        <div>
         <h2>Tous les produits en stock</h2>
-        <div className="container-products">
+        </div>
+        <Fragment>
             {articles.map((article, i) => {
                 return(
-                    <div key={i} className="card-product">
-                        <div className="product-img">
-                            <img className='product-img' src={`${BASE_URL}/img/${article.url}`} alt="" />
-                        </div>
+                    <div key={i}>
+                    <div className="card-wrapper">
+                    <div className="card-container">
+                    <div className="image-container">
+                        <img src={`${BASE_URL}/img/${article.url}`} alt="" />
+                    </div>
+                    <div className="card-content">
+                    <div  className="btn-product">
                         <button className="btn-product" onClick={() => editPicture(article.id)}>modifier l'image</button>
                         <NavLink to={`/editPicture/${article.id}`}></NavLink>
-                        <div className="body-product">
-                            <h3 className="title-product">{article.title}</h3>
-                            <p className="description-product">{article.descriptif}</p>
-                            <p className="description-product">{article.prix}€</p>
-                        <div className="footer-card">
-                            <button className="btn-product" onClick={() => deletedArticle(article.id)}>Supprimer l'article</button>
-                            <button className="btn-product" onClick={() => editArticle(article.id)}>modifier l'article</button>
-                        </div>
                     </div>
+                    <div className="card-title">
+                        <h3>{article.title}</h3>
+                    </div>
+                    <div className="card-body">
+                        <p>{article.descriptif}</p>
+                        <p>{article.prix}€</p>
+                    </div>
+                    <div className="btn-product">
+                        <button onClick={() => deletedArticle(article.id)}>Supprimer l'article</button>
+                        <button onClick={() => editArticle(article.id)}>modifier l'article</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
                 </div>
                 )
             })}
+            
+        </Fragment>
+        
         </div>
         </Fragment>
+        
     )
 }
 

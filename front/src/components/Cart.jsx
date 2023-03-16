@@ -46,36 +46,40 @@ const Cart = () => {
    
     return (
         <Fragment>
-            <h1> Mon Panier</h1>
+        <div className="container">
+            <h1> Mon Panier : </h1>
+        <Fragment>
             {state.cart.map((product,i)=>{
                 return(
-                    <Fragment key={i} >
-                        <section className="products">
-                            <div className="container-products">
-                                <div className="card-product">
-                                    <div className="product-img">
-                                        <img className='product-img' src={`${BASE_URL}/img/${product.url}`} alt="" />
-                                    </div>
-                                    <div className="body-product">
-                                        <h3 className="title-product">{product.title}</h3>
-                                        <p className="description-product"> {product.descriptif}</p>
-                                        <p className="description-product">{product.prix}€</p>
-                                        <div className="footer-card">
-                                        <button className="btn-product" onClick ={()=> removeCart(product)}>Retirer du panier</button>
-                                        
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </section>
-                        
-                    </Fragment>
+                    <div key={i} >
+                    <div className="card-wrapper">
+                        <div className="card-container">
+                        <div className="image-container">
+                            <img src={`${BASE_URL}/img/${product.url}`} alt="carte de tarot" />
+                        </div>
+                        <div className="card-content">
+                        <div className="card-title">
+                            <h3>{product.title}</h3>
+                        </div>
+                        <div className="card-body">
+                            <p> {product.descriptif}</p>
+                            <p>{product.prix}€</p>
+                        </div>
+                     </div>
+                     <div className="btn-product">
+                        <button onClick ={()=> removeCart(product)}>Retirer du panier</button>
+                     </div>
+                     
+                     </div>
+                     </div>
+                </div>
                 )
             })}
-            <button className="btn-product" disabled={state.cart.length <= 0} onClick={submitCart}>Valider panier</button>
-            
+            <div  className="btn-product">
+                <button disabled={state.cart.length <= 0} onClick={submitCart}>Valider panier</button>
+            </div>
+        </Fragment>
+        </div>
         </Fragment>
     )
 }    
