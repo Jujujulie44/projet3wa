@@ -3,6 +3,8 @@ import {NavLink} from "react-router-dom";
 import {useState,Fragment, useEffect} from "react";
 import {BASE_URL} from "../tools/constante.js";
 import { useNavigate } from "react-router-dom";
+import decorationHautDroit from "../image/decorationHautDroit.png";
+import decorationBasGauche from "../image/decorationBasGauche.png";
 
 
 const AllArticle = () => {
@@ -34,9 +36,11 @@ const AllArticle = () => {
     
     return (
         <Fragment>
+            <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
+            <div className="clear"></div>
         <div className="container">
         <div>
-        <h2>Tous les produits en stock</h2>
+        <h2 className="order-title">Tous les produits en stock : </h2>
         </div>
         <Fragment>
             {articles.map((article, i) => {
@@ -71,7 +75,7 @@ const AllArticle = () => {
             })}
             
         </Fragment>
-        
+        <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
         </div>
         </Fragment>
         

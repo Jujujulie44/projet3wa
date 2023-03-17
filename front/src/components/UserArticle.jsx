@@ -2,6 +2,9 @@ import axios from "axios";
 import {useEffect, Fragment, useContext} from "react";
 import {BASE_URL} from "../tools/constante.js";
 import {StoreContext} from "../tools/context.js";
+import decorationHautDroit from "../image/decorationHautDroit.png";
+import decorationBasGauche from "../image/decorationBasGauche.png";
+
 
 const UserArticle = () => {
     const [state, dispatch] = useContext(StoreContext)
@@ -49,9 +52,11 @@ const UserArticle = () => {
     
     return (
         <Fragment>
+        <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
+        <div className="clear"></div>
         <div className="container">
             <h1>Baliser sa vie :</h1>
-        	<h2>Les tirages</h2>
+        	<h2 className="order-title">Les tirages</h2>
         <Fragment>
             {state.products.map((article, i) => {
                 return(
@@ -76,10 +81,12 @@ const UserArticle = () => {
                     </div>
                     </div>
                     </div>
+                    
                         )
                 }
             )}
         </Fragment>
+        <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
         </div>
         </Fragment>
     )

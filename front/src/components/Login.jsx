@@ -4,6 +4,8 @@ import {BASE_URL} from "../tools/constante.js";
 import inputCheck from "../tools/inputLength.js";
 import {StoreContext} from "../tools/context.js";
 import { useNavigate } from "react-router-dom";
+import decorationHautDroit from "../image/decorationHautDroit.png";
+import decorationBasGauche from "../image/decorationBasGauche.png";
 
 const Login = () => {
     
@@ -52,16 +54,19 @@ const Login = () => {
         
     return(
         <Fragment>
-            <form onSubmit={submit}>
+        <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
+          <div className="clear"></div> 
+            <form className="form-demo" onSubmit={submit}>
                 <fieldset>
-                    <legend>Vous êtes déjà inscrit ?</legend>
-                    <label> Email : </label>
-                    <input type='text' name='email' value={info.email} onChange={handleChange} placeholder='email' />
+                    <legend><h2>Vous êtes déjà inscrit ?</h2></legend>
+                    <label>Email : </label>
+                    <input className="form-input"  type='text' name='email' value={info.email} onChange={handleChange} placeholder='email' />
                     <label>Mot de passe </label>
-                    <input type='password' name='password' value={info.password} onChange={handleChange} placeholder='password' />
-                    <input type="submit" value={buttonText} />
+                    <input className="form-input"  type='password' name='password' value={info.password} onChange={handleChange} placeholder='password' />
+                    <input className="form-submit" type="submit" value={buttonText} />
                 </fieldset>
             </form>
+            <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
         </Fragment>   
     )
 }

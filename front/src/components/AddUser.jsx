@@ -3,7 +3,8 @@ import {BASE_URL} from '../tools/constante.js'
 import {useState, Fragment} from "react"
 import inputCheck from "../tools/inputLength.js";
 import { useNavigate } from "react-router-dom";
-
+import decorationHautDroit from "../image/decorationHautDroit.png";
+import decorationBasGauche from "../image/decorationBasGauche.png";
 
 const AddUser = () => {
     const [userData, setUserData] = useState({
@@ -45,20 +46,23 @@ const AddUser = () => {
     
     return(
         <Fragment>
-            <form onSubmit={submit}>
+        <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
+        <div className="clear"></div>
+            <form onSubmit={submit}  className="form-demo">
                 <fieldset>
-                    <legend>Rejoignez-moi : </legend>
+                    <legend><h2>Vous souhaitez me rejoindre ?</h2></legend>
                     <label> Votre Nom : </label>
-                    <input type='text' placeholder='nom' name='nom' onChange={handleChange} value={userData.nom} />
+                    <input className="form-input" type='text' placeholder='nom' name='nom' onChange={handleChange} value={userData.nom} />
                     <label> Votre Prénom : </label>
-                    <input type='text' placeholder='prenom' name='prenom' onChange={handleChange} value={userData.prenom} />
+                    <input className="form-input" type='text' placeholder='prenom' name='prenom' onChange={handleChange} value={userData.prenom} />
                     <label> Votre adresse email : </label>
-                    <input type='email' placeholder='email' name='email' onChange={handleChange} value={userData.email} />
+                    <input className="form-input" type='email' placeholder='email' name='email' onChange={handleChange} value={userData.email} />
                     <label> Votre mot de passe: </label>
-                    <input type='password' placeholder='password' name='password' onChange={handleChange} value={userData.password} />
-                    <input type='submit' />
+                    <input className="form-input" type='password' placeholder='password' name='password' onChange={handleChange} value={userData.password} />
+                    <input className="form-submit" type='submit' />
                 </fieldset>
-            </form> 
+            </form>
+            <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
         </Fragment>   
     )
 }

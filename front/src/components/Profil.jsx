@@ -4,6 +4,8 @@ import {StoreContext} from "../tools/context.js";
 import {useContext, Fragment} from "react";
 import {NavLink} from "react-router-dom";
 import idea from "../image/idea.gif";
+import decorationHautDroit from "../image/decorationHautDroit.png";
+import decorationBasGauche from "../image/decorationBasGauche.png";
 
 const Profil = () => {
     
@@ -24,6 +26,8 @@ const Profil = () => {
     
     return (
         <Fragment>
+        <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
+            <div className="clear"></div>
             {state.user.isLogged === true && (
                 <div>
                     <h2>Bienvenue sur votre profil {state.user.prenom}!</h2>
@@ -44,6 +48,7 @@ const Profil = () => {
                     </div>
                 </div>    
             )}
+            <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
         </Fragment>
     )
 }

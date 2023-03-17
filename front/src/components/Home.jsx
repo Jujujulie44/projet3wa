@@ -1,8 +1,7 @@
-// import {BASE_URL} from "../tools/constante.js";
-// import {NavLink} from "react-router-dom";
 import {Fragment} from "react";
 import { useNavigate } from "react-router-dom";
-// import {StoreContext} from "../tools/context.js"; 
+import decorationHautDroit from "../image/decorationHautDroit.png";
+import decorationBasGauche from "../image/decorationBasGauche.png";
 import photoPortrait from "../image/PhotoPortrait.jpg";
 
 
@@ -18,16 +17,19 @@ const Home = () => {
 
     return(
         <Fragment>
-    
+    		<img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
+	        
+	       
 	        <blockquote lang="fr">
+	        	<div className="clear"></div>
 				<q className="citation">&nbsp;On ne vois bien qu'avec le coeur, l'essentiel est invisible pour les yeux&nbsp;</q>
 				<cite className="auteur">Antoine de saint Exupéry</cite>
 			</blockquote>
-			
+		
 			<Fragment>
 	    		<article className="container">
 	    		    
-	    			<h2>Qui je suis ?</h2>
+	    			<h2 className="order-title">Qui je suis ?</h2>
 	    			<div >
 	    				<img src={photoPortrait}  className="photo-portrait"  alt="Cartomancienne"/>
 	    				<h2>Je suis Diane</h2>
@@ -68,7 +70,10 @@ const Home = () => {
 	    		</div>
     		
     		<div className="clear"></div>
+    		
+    		<img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
 		
+			<div className="clear"></div>
 		</Fragment>  	
     </Fragment>
     )

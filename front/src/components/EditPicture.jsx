@@ -2,6 +2,9 @@ import {useParams} from "react-router-dom"
 import axios from "axios"
 import {BASE_URL} from "../tools/constante.js"
 import { useNavigate } from "react-router-dom";
+import {Fragment} from "react";
+import decorationHautDroit from "../image/decorationHautDroit.png";
+import decorationBasGauche from "../image/decorationBasGauche.png";
 
 
 const EditPicture = () => {
@@ -27,10 +30,20 @@ const EditPicture = () => {
         
     
     return (
-        <form onSubmit={submit} encType="multipart/form-data">
-            <input type='file'name="image" />
-            <input type='submit' />
-        </form>
+        <Fragment>
+        <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
+        <div className="clear"></div>
+            <form className="form-demo" onSubmit={submit} encType="multipart/form-data">
+            <fieldset>
+                <legend><h2> Vous souhaitez modifier l'image ?</h2></legend>
+                <input className="form-input" type='file' name="image" />
+                <input className="form-submit" type='submit' />
+            </fieldset>  
+            </form>
+            <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
+
+        </Fragment>
+        
     )
 }
 

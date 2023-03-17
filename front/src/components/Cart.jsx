@@ -3,6 +3,10 @@ import {Fragment, useContext, useEffect} from "react";
 import axios from "axios";
 import {StoreContext} from "../tools/context.js"
 import { useNavigate } from "react-router-dom";
+import decorationHautDroit from "../image/decorationHautDroit.png";
+import decorationBasGauche from "../image/decorationBasGauche.png";
+
+
 
 const Cart = () => {
     
@@ -46,8 +50,15 @@ const Cart = () => {
    
     return (
         <Fragment>
+       
+            <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
+            
+            <div className="clear"></div>
+            <h2 className="order-title"> Mon Panier : </h2>
         <div className="container">
-            <h1> Mon Panier : </h1>
+        
+            
+            
         <Fragment>
             {state.cart.map((product,i)=>{
                 return(
@@ -78,6 +89,8 @@ const Cart = () => {
             <div  className="btn-product">
                 <button disabled={state.cart.length <= 0} onClick={submitCart}>Valider panier</button>
             </div>
+            <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
+            <div className="clear"></div>
         </Fragment>
         </div>
         </Fragment>
