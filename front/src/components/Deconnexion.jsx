@@ -14,9 +14,9 @@ const Deconnexion = () => {
         dispatch({type: 'LOGOUT'})
         localStorage.removeItem('jwtToken')
         delete axios.defaults.headers.common['Authorization']
-        navigate('/');
+        navigate('/Login');
          
-     },[dispatch])
+     },[dispatch, useNavigate])
      
      
     

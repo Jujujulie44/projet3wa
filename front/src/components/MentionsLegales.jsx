@@ -1,40 +1,71 @@
+import { useNavigate } from "react-router-dom";
+import decorationHautDroit from "../image/decorationHautDroit.png";
+import decorationBasGauche from "../image/decorationBasGauche.png";
+import {Fragment} from "react";
+
 const MentionsLegales = () => {
+    const navigate = useNavigate();
+    
+    
+    	const onClick = () => {
+      
+      navigate('/');
+    };
+    
     return(
-        <div>
-            <h1>Mentions Légales</h1>
-            <p>
-                Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l'économie numérique, 
-                il est précisé aux utilisateurs du site PresseMia l'identité des différents intervenants dans le cadre de sa réalisation 
-                et de son suivi.
-            </p>
+        <Fragment>
+        <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
+        <div className="clear"></div>
+        
+        
+            <h2>Mentions Légales</h2>
+            <div className="mentions-legales">
+                <p>Conformément aux dispositions des articles 6-III et 19 de la Loi n° 2004-575 du 21 juin 2004 pour la Confiance dans l'économie numérique, 
+                dite L.C.E.N, nous portons à la connaissance des utilisateurs et visiteurs du site "Ficelles et Message, les informations suivantes : </p>
+            </div>
+            <h3>Edition du site : </h3>
+            <div className="mentions-legales">
+                <p>Le présent site, accessible à l’URL : http://julieandre.ide.3wa.io:3000  est édité par :
+                Julie André, résidant au 2 rue du Haut Launay 4300 Nantes</p>
+            </div>
+            <h3>Le sites Internet : </h3>
+            <div className="mentions-legales">
+                <p>Le Site est hébergé par la société 3WA</p>
+            </div>
+            <h3>Responsable de publication : </h3>
+            <div className="mentions-legales">
+                <p>Le Directeur de la publication du Site est Julie André.</p>
+            </div>
+            <h3>Me contacter : </h3>
+            <div className="mentions-legales">
             
-            <h2>Edition du site</h2>
-            <p>
-                Le présent site, accessible à l’URL http://julieandre.ide.3wa.io:3000/ (le « Site »), est édité par :
-                JULIE ANDRE, résidant 2 rue du Haut Launay 4300 NANTES, de nationalité Française (France), né(e) le 22/05/1984,
-            </p>
+                <p>- Par téléphone : 06-07-08-09-00</p>
+                <p>- Par email : andre@julie.com</p>
+                <p>- Par courrier : 2 rue du Haut Launay, 44300 Nantes</p>
+            </div>
             
-            <h2>Hébergement</h2>
-            <p>
-                Le Site est hébergé par la société 3WA, situé Rue de la 3WA 44000 NANTES, (contact téléphonique ou email : +33102030405).
-            </p>
+            <h3>Protection et gestion des données personnelles : </h3>
+            <div className="mentions-legales">
+                <p>En France, les données personnelles sont notamment protégées par la loi n° 78 -87 du 6janvien 1978, la loi n° 2004 -801 du 6 août 2004, l'article L.226-13 du Code pénal et la Directive Européenne du 24 octobre 1995.</p>
+            </div>
             
-            <h2>Directeur de publication </h2>
-            <p>
-                Le Directeur de la publication du Site est JULIE ANDRE.
-            </p>
+            <h3>Limitation de responsabilité : </h3>
+            <div className="mentions-legales">
+                <p>Les mentions légales définies sur cette page s'appliquent à l'ensemble du présent site internet et sont succeptibles d'évoluer sans préavis. L'utilisateur du site est donc invité à les consulter régulièrement afin d'en prendre connaissance.</p>
+                <p> Ficelles et Messages ne commercialise pas vos données personnelles qui sont uniquement utilisées par  nécessité de connexion et d'inscription.</p>
+            </div>
             
-            <h2>Nous contacter</h2>
-            <p>Par téléphone : +33607080900</p>
-            <p>Par email : andre@julie.com</p>
-            <p>Par courrier : 2 rue du Haut Launay, 44300 NANTES</p>
+            <h3>images publiques : </h3>
+            <div className="mentions-legales">
+                <p>Toutes les images proviennent des sites : Pixabay, Font Awesome, FreePNG</p>
+            </div>
             
-            <h2>Nous contacter</h2>
-            <p>
-                Le traitement de vos données à caractère personnel est régi par notre Charte du respect de la vie privée, disponible depuis la 
-                section "Charte de Protection des Données Personnelles", conformément au Règlement Général sur la Protection des Données 2016/679 du 27 avril 2016 («RGPD»).
-            </p>
-        </div>
+            <div  className="btn-product" >
+	    		<button type="button"  onClick={onClick}>Retour à l'accueil </button>
+	    	</div>
+    
+        <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
+        </Fragment>
         )
 }
 

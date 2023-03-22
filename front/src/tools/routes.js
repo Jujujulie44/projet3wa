@@ -18,6 +18,8 @@ import UpDateUser from "../components/UpDateUser";
 import SuccessCommande from "../components/SuccessCommande";
 import MentionsLegales from "../components/MentionsLegales";
 
+
+
 const routes = [
     {path:"/", component:<Home />},
     {path:"/login", component:<Login />},
@@ -37,6 +39,7 @@ const routes = [
     {path:"/UpDateUser", component:<UpDateUser />, auth:"user"},
     {path:"/SuccessCommande", component:<SuccessCommande />, auth:"user"},
     {path:"/MentionsLegales", component:<MentionsLegales />},  
+    
     
     {path:"*", component:<Error404 />}
     

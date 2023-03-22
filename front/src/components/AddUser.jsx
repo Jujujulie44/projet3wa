@@ -50,7 +50,7 @@ const AddUser = () => {
         <div className="clear"></div>
             <form onSubmit={submit}  className="form-demo">
                 <fieldset>
-                    <legend><h2>Vous souhaitez me rejoindre ?</h2></legend>
+                    <legend>Vous souhaitez me rejoindre ?</legend>
                     <label> Votre Nom : </label>
                     <input className="form-input" type='text' placeholder='nom' name='nom' onChange={handleChange} value={userData.nom} />
                     <label> Votre Prénom : </label>

@@ -55,7 +55,7 @@ const UserArticle = () => {
         <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
         <div className="clear"></div>
         <div className="container">
-            <h1>Baliser sa vie :</h1>
+            <h2>Baliser sa vie :</h2>
         	<h2 className="order-title">Les tirages</h2>
         <Fragment>
             {state.products.map((article, i) => {

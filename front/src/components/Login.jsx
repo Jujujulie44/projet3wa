@@ -58,7 +58,7 @@ const Login = () => {
           <div className="clear"></div> 
             <form className="form-demo" onSubmit={submit}>
                 <fieldset>
-                    <legend><h2>Vous êtes déjà inscrit ?</h2></legend>
+                    <legend>Vous êtes déjà inscrit ?</legend>
                     <label>Email : </label>
                     <input className="form-input"  type='text' name='email' value={info.email} onChange={handleChange} placeholder='email' />
                     <label>Mot de passe </label>

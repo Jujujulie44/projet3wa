@@ -21,8 +21,8 @@ const SuccessCommande = () => {
       <div>
         {showAlert && (
           <div  role="alert">
-            <h2  className="order-title">Merci pour votre confiance ! </h2>
-            <h2>Votre commande a été traitée avec succès !</h2>
+            <h2 className="successCommande">Merci pour votre confiance. </h2>
+            <h2 className="successCommande">Votre commande a été traitée avec succès</h2>
           <div  className="btn-product" >
             <button type="button" data-dismiss="alert" aria-label="Close" onClick={onClick}>
               <span aria-hidden="true">Retour à l'accueil</span>

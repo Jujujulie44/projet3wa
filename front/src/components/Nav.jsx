@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 import {useContext, Fragment, useState} from 'react';
 import {StoreContext} from "../tools/context.js"
-import livrePanier from "../image/livre-panier.png";
-import menuBtn32 from "../image/menu-btn32.png";
+import Panier from "../image/cart.png";
+import menuBtn from "../image/menu-btn32.png";
 
 
 const Nav = (props) => {
@@ -15,11 +15,11 @@ const Nav = (props) => {
             <div className={`nav-links ${mobileMenuOpen ? 'mobile-menu' : ''}`}>
                 <ul>
                     <li>
-                        <NavLink onClick={() => setMobileMenuOpen(false)} to="/">Ma Maison</NavLink>
+                        <NavLink onClick={() => setMobileMenuOpen(false)} to="/">Accueil</NavLink>
                     </li>
                 
                     <li>
-                    <NavLink onClick={() => setMobileMenuOpen(false)} to="/userArticle">Mes tirages</NavLink>
+                    <NavLink onClick={() => setMobileMenuOpen(false)} to="/userArticle">Les tirages</NavLink>
                     </li>
                     {state.user.admin && (
                         <Fragment>
@@ -30,6 +30,7 @@ const Nav = (props) => {
                             <li>
                                 <NavLink onClick={() => setMobileMenuOpen(false)} to="/allArticle">Tous les produits</NavLink>
                             </li>
+                            
                             
                         </Fragment>
                     )}
@@ -48,7 +49,7 @@ const Nav = (props) => {
                     {state.user.isLogged === true && (
                         <Fragment>
                             <li>
-                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/profil">Mon Profil</NavLink>
+                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/profil">Votre Profil</NavLink>
                             </li>
                     
                             <li>
@@ -59,8 +60,8 @@ const Nav = (props) => {
                 </ul>
             </div>
             <div>
-                <NavLink to="/Cart" onClick={() => setMobileMenuOpen(false)}><img className="livre-panier" src={livrePanier} alt="livre panier" /></NavLink>
-                <img onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="menu-burger"src={menuBtn32} alt="menu burger" />
+                <NavLink to="/Cart" onClick={() => setMobileMenuOpen(false)}><img className="panier" src={Panier} alt="panier" /></NavLink>
+                <img onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="menu-burger"src={menuBtn} alt="menu burger" />
             </div>
       </nav>
       );

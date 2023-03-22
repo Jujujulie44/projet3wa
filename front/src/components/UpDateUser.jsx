@@ -1,16 +1,18 @@
-import {useParams} from "react-router-dom"
 import axios from "axios"
 import {BASE_URL} from "../tools/constante.js"
 import {StoreContext} from "../tools/context.js"
 import {useState, useEffect, Fragment, useContext} from "react"
 import inputCheck from "../tools/inputLength.js"
+import decorationHautDroit from "../image/decorationHautDroit.png";
+import decorationBasGauche from "../image/decorationBasGauche.png";
+import { useNavigate } from "react-router-dom";
+
 
 const UpDateUser = () => {
     const initialState = {nom:'',prenom:'',email:''};
     const [user, setUser] = useState(initialState)
     const [state, dispatch] = useContext(StoreContext)
-    
-    console.log(state)
+    const navigate = useNavigate();
     
     useEffect(() => {
         setUser({
@@ -19,10 +21,8 @@ const UpDateUser = () => {
             email:state.user.email
         })
         
-        // axios.post(`${BASE_URL}/editUserById`,{id})
-        //     .then(res => setUser(res.data.result[0]))
-        //     .catch(err => console.log(err))
-    },[])
+        
+    },[state.user.email, state.user.nom, state.user.prenom])
     
     
     const handleChange = (e) => {
@@ -43,25 +43,29 @@ const UpDateUser = () => {
                 setUser(initialState);
             })
             .catch(e => console.log(e))
+            navigate("/profil")
         }
     }
     
     return (
         <Fragment>
+        <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
+        <div className="clear"></div>
             { user &&  (
-                <form onSubmit={submit}>
+                <form onSubmit={submit} className="form-demo">
                     <fieldset>
-                        <legend>Vous souhaitez modifier vos informations ? </legend>
+                        <legend>Vous souhaitez modifier vos informations ?</legend>
                         <label> Votre nom : </label>
-                            <input type='text' name='nom' placeholder='nom' onChange={handleChange} value={user.nom} />
+                            <input className="form-input" type='text' name='nom' placeholder='nom' onChange={handleChange} value={user.nom} />
                         <label> Votre prénom : </label>
-                            <input type='text' name='prenom' placeholder='prenom' onChange={handleChange} value={user.prenom} />
+                            <input className="form-input" type='text' name='prenom' placeholder='prenom' onChange={handleChange} value={user.prenom} />
                         <label> Votre adresse mail : </label>
-                            <input type='email' name='email' placeholder='email' onChange={handleChange} value={user.email} />
-                            <input type='submit' />
+                            <input className="form-input" type='email' name='email' placeholder='email' onChange={handleChange} value={user.email} />
+                            <input className="form-submit" type='submit' />
                     </fieldset>
                 </form>
-            )}
+             )}
+            <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
         </Fragment>
         )
 }

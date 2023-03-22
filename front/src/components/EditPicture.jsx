@@ -35,7 +35,7 @@ const EditPicture = () => {
         <div className="clear"></div>
             <form className="form-demo" onSubmit={submit} encType="multipart/form-data">
             <fieldset>
-                <legend><h2> Vous souhaitez modifier l'image ?</h2></legend>
+                <legend>Vous souhaitez modifier l'image ?</legend>
                 <input className="form-input" type='file' name="image" />
                 <input className="form-submit" type='submit' />
             </fieldset>  

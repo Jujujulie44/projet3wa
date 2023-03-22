@@ -46,16 +46,16 @@ const AddArticle = ()=> {
                 <form className="form-demo" onSubmit={submit} encType="multipart/form-data">
                     <fieldset>
                       <legend>
-                        <h2> Vous souhaitez ajouter un article ?</h2>
+                        Vous souhaitez ajouter un article ?
                       </legend>
                       <label className="form-label">Ajouter une image :</label>
                       <input type='file' name='image' />
                       <label>Ajouter un produit : </label>
-                      <input type='text' placeholder='title' name='title' onChange={handleChange} value={addArticleData.title} />
+                      <input type='text' placeholder='titre du produit' name='title' onChange={handleChange} value={addArticleData.title} />
                       <label>Concernant le produit : </label>
-                      <input type='text' placeholder='descriptif' name='descriptif' onChange={handleChange} value={addArticleData.descriptif} />
-                      <label>Ajouter un prix : </label>
-                      <input type='number' placeholder='prix' name='prix' onChange={handleChange} value={addArticleData.prix} />
+                      <input type='text' placeholder='description du produit' name='descriptif' onChange={handleChange} value={addArticleData.descriptif} />
+                      <label>Son prix : </label>
+                      <input type='number' name='prix' onChange={handleChange} value={addArticleData.prix} />
                       <input className="form-submit" placeholder='Ajouter' type='submit' />
                     </fieldset>
                 </form>
