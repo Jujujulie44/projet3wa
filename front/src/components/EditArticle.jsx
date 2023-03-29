@@ -49,16 +49,14 @@ const EditArticle = () => {
             {article !== null && (
                 <form onSubmit={submit} className="form-demo">
                 <fieldset>
-                <legend>Vous souhaitez modifier cet article ?</legend>
-                <label> Le titre : </label>
+                    <legend>Vous souhaitez modifier cet article ?</legend>
+                    <label> Le titre : </label>
                     <input className="form-input" type="text" placeholder='title' name='title' onChange={handleChange} value={article.title} />
-                <label> La description : </label>   
+                    <label> La description : </label>   
                     <input className="form-input" type="text" placeholder='descriptif' name='descriptif' onChange={handleChange} value={article.descriptif} />
-                 <label> Le prix : </label>   
+                    <label> Le prix : </label>   
                     <input className="form-input" type="number" placeholder='prix' name='prix' onChange={handleChange} value={article.prix} />
-                 
                     <input className="form-submit" type='submit' placeholder='modifier' value={buttonText} />
-                
                 </fieldset>
                 </form>
             )}

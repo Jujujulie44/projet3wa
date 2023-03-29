@@ -26,9 +26,6 @@ const EditPicture = () => {
             .catch(err => console.log(err))
         }
         
-        
-        
-    
     return (
         <Fragment>
         <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
@@ -41,9 +38,7 @@ const EditPicture = () => {
             </fieldset>  
             </form>
             <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
-
         </Fragment>
-        
     )
 }
 

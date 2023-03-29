@@ -42,10 +42,7 @@ const Login = () => {
                     axios.defaults.headers.common['Authorization'] = 'Bearer '+res.data.response.token
                     setInfo(initialState);
                     navigate("/")
-                    
-                    
                     } else {
-                        
                         alert("Email ou mot de passe erroné")
                     }
                 })
@@ -70,7 +67,5 @@ const Login = () => {
         </Fragment>   
     )
 }
-
-
 
 export default Login

@@ -8,8 +8,6 @@ const Deconnexion = () => {
      const [_,dispatch] = useContext(StoreContext) 
      const navigate = useNavigate()
      
-     
-    
      useEffect(() => {
         dispatch({type: 'LOGOUT'})
         localStorage.removeItem('jwtToken')

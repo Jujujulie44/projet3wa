@@ -5,7 +5,7 @@ import {StoreContext} from "../tools/context.js"
 import { useNavigate } from "react-router-dom";
 import decorationHautDroit from "../image/decorationHautDroit.png";
 import decorationBasGauche from "../image/decorationBasGauche.png";
-
+import arabesqueAdmin from "../image/arabesqueAdmin.png";
 
 
 const Cart = () => {
@@ -45,20 +45,18 @@ const Cart = () => {
                 type: "REMOVE_CART"
             });
         })
-        navigate("/SuccessCommande")
+        navigate("/SuccessPaiement")
     };
    
     return (
         <Fragment>
-       
             <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
-            
             <div className="clear"></div>
-            <h2 className="order-title"> Mon Panier : </h2>
+            
+            <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
+            <div className="clear"></div>
+            <h2 className="adminStyle"> Votre Panier : </h2>
         <div className="container">
-        
-            
-            
         <Fragment>
             {state.cart.map((product,i)=>{
                 return(
@@ -80,7 +78,6 @@ const Cart = () => {
                      <div className="btn-product">
                         <button onClick ={()=> removeCart(product)}>Retirer du panier</button>
                      </div>
-                     
                      </div>
                      </div>
                 </div>

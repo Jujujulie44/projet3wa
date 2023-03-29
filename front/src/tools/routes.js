@@ -17,7 +17,7 @@ import Cart from "../components/Cart";
 import UpDateUser from "../components/UpDateUser";
 import SuccessCommande from "../components/SuccessCommande";
 import MentionsLegales from "../components/MentionsLegales";
-
+import SuccessPaiement from "../components/SuccessPaiement";
 
 
 const routes = [
@@ -39,7 +39,7 @@ const routes = [
     {path:"/UpDateUser", component:<UpDateUser />, auth:"user"},
     {path:"/SuccessCommande", component:<SuccessCommande />, auth:"user"},
     {path:"/MentionsLegales", component:<MentionsLegales />},  
-    
+    {path:"/SuccessPaiement", component:<SuccessPaiement />, auth:"user"},
     
     {path:"*", component:<Error404 />}
     

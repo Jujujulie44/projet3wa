@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 import {useContext, Fragment, useState} from 'react';
 import {StoreContext} from "../tools/context.js"
-import Panier from "../image/cart.png";
 import menuBtn from "../image/menu-btn32.png";
+import Panier from "../image/cart.png";
 
 
 const Nav = (props) => {
@@ -26,15 +26,11 @@ const Nav = (props) => {
                             <li>
                                 <NavLink onClick={() => setMobileMenuOpen(false)} to="/addArticle">Ajouter un produit</NavLink>
                             </li>
-                            
                             <li>
                                 <NavLink onClick={() => setMobileMenuOpen(false)} to="/allArticle">Tous les produits</NavLink>
                             </li>
-                            
-                            
                         </Fragment>
                     )}
-                
                     {state.user.isLogged === false && (
                         <Fragment>
                             <li>
@@ -64,6 +60,7 @@ const Nav = (props) => {
                 <img onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="menu-burger"src={menuBtn} alt="menu burger" />
             </div>
       </nav>
+            
       );
     };
 

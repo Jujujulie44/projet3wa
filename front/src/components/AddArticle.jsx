@@ -5,6 +5,7 @@ import inputCheck from "../tools/inputLength.js";
 import { useNavigate } from "react-router-dom";
 import decorationHautDroit from "../image/decorationHautDroit.png";
 import decorationBasGauche from "../image/decorationBasGauche.png";
+import arabesqueAdmin from "../image/arabesqueAdmin.png"; 
 
 const AddArticle = ()=> {
     const [addArticleData, setAddArticleData]= useState ({
@@ -43,6 +44,8 @@ const AddArticle = ()=> {
         <Fragment>
             <img src={decorationHautDroit} className="decorationright" alt="décoration haut de page" />
             <div className="clear"></div>
+            <h2 className="adminStyle"> Vous êtes sur votre interface admin </h2>
+            <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
                 <form className="form-demo" onSubmit={submit} encType="multipart/form-data">
                     <fieldset>
                       <legend>

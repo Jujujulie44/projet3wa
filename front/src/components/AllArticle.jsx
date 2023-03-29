@@ -5,7 +5,7 @@ import {BASE_URL} from "../tools/constante.js";
 import { useNavigate } from "react-router-dom";
 import decorationHautDroit from "../image/decorationHautDroit.png";
 import decorationBasGauche from "../image/decorationBasGauche.png";
-
+import arabesqueAdmin from "../image/arabesqueAdmin.png"; 
 
 const AllArticle = () => {
     const [articles, setArticles] = useState([])
@@ -38,24 +38,26 @@ const AllArticle = () => {
         <Fragment>
             <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
             <div className="clear"></div>
-        <div className="container">
-        <div>
-        <h2 className="order-title">Tous les produits en stock : </h2>
-        </div>
+            <div className="container">
+            <h2 className="adminStyle"> Vous êtes sur votre interface admin </h2>
+            <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
+            <div>
+                <h2 className="admin-title">Tous vos produits en stock : </h2>
+            </div>
         <Fragment>
             {articles.map((article, i) => {
                 return(
                     <div key={i}>
                     <div className="card-wrapper">
-                    <div className="card-container">
-                    <div className="image-container">
-                        <img src={`${BASE_URL}/img/${article.url}`} alt="" />
-                    </div>
+                        <div className="card-container">
+                            <div className="image-container">
+                                <img src={`${BASE_URL}/img/${article.url}`} alt="" />
+                            </div>
                     <div className="card-content">
-                    <div  className="btn-product">
-                        <button className="btn-product" onClick={() => editPicture(article.id)}>modifier l'image</button>
-                        <NavLink to={`/editPicture/${article.id}`}></NavLink>
-                    </div>
+                        <div className="btn-product">
+                            <button className="btn-product" onClick={() => editPicture(article.id)}>modifier l'image</button>
+                            <NavLink to={`/editPicture/${article.id}`}></NavLink>
+                        </div>
                     <div className="card-title">
                         <h3>{article.title}</h3>
                     </div>
@@ -70,7 +72,7 @@ const AllArticle = () => {
                     </div>
                 </div>
                 </div>
-                </div>
+            </div>
                 )
             })}
             

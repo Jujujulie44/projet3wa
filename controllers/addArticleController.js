@@ -16,5 +16,3 @@ export default async (req, res) => {
     res.json({product,pictures})
     
 }
-
-// pictures product_id url caption

@@ -1,5 +1,6 @@
 /******FONT*****/ 
-
+/*********** TITRE ADMIN**************/
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
 /*TITRES h1*/
 
 @import url('https://fonts.cdnfonts.com/css/mommyday');
@@ -8,7 +9,7 @@
 
 /***Diane**/
 @import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
-/*****TEST FONT*******/
+/***** FONT CITATION*******/
 
 @import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap');
 /******************GENERALITES**************/ 
@@ -90,15 +91,15 @@ header {
 	  background-image: url("./image/mystery_1920.jpg");
 	  background-size: cover;
 	  background-position:center;
-    padding:3em;
+	  padding-top: 1em;
+    padding-bottom:1em;
 }
 
 .logo h1{
     text-align:center;
     color:white;
-    font-size:4em;
+    font-size:3.5em;
     margin-bottom:1.5em;
-    padding-top:2.0em;
     line-height: 1.5;
     letter-spacing: 0.1em;
 }
@@ -155,7 +156,7 @@ header {
 	width: 30px;
   position: absolute; 
   right: 40px; 
-  top: 40px; 
+  top: 30px; 
   cursor: pointer;
   color: whote;
 }
@@ -222,13 +223,13 @@ cite {
 /****************DECORATION PAGE****************/
 
 .decoration{
-  width:10%;
+  width:5%;
   margin-left: 40px;
   margin-bottom: 40px;
 }
 
 .decorationright{
-   width:10%;
+   width:5%;
    float: right;
    margin-right: 60px;
    margin-top: 40px;
@@ -378,6 +379,15 @@ label{
   font-size:3rem;
 }
 
+
+/***************SUCCESSPAIEMENT *************/ 
+
+.cartesBancaires {
+  margin: auto;
+	display: block;
+  width:50%;
+}
+
 /**************FOOTER**************/
 footer{
     background-image: url("./image/mystery_1920.jpg");
@@ -442,10 +452,23 @@ h3{
 }
 
 
-/*********************/
+/**********TITRES INTERFACE ADMIN***********/
+.adminStyle{
+  font-size : 4em;
+  font-family: 'Mommyday', sans-serif;
+  font-style:italic;
+  color:#995273;
+}
 
+.arabesqueAdmin{
+  width: 25%;
+  display: flex;
+  margin: auto;
+}
 
-
+.admin-title{
+  font-family: 'Zeyada', cursive;
+}
 
 
 
@@ -453,8 +476,19 @@ h3{
 
 @media screen and (max-width: 950px) {
   
+  header {
+    padding: 1em;
+}
+  
+  
+  
+  .adminStyle{
+  font-size : 1.8em;
+  }
+  
+  
   .panier {
-  width:9%;
+  width:7%;
   top: 37px;
   }
   
@@ -520,6 +554,7 @@ h3{
 	}
 	/************TITRE PRINCIPAL*****************/
 	.logo h1{
+	  padding-top: 2em;
     font-size:2em;
 	}
 	

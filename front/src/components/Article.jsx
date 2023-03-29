@@ -26,7 +26,6 @@ const Article = () => {
                     <p>title: {item.title}</p>
                     <p>descriptif: {item.descriptif}</p>
                     <p>prix: {item.prix}</p>
-                    
                 </div>
             )
         })}
