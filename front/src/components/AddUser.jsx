@@ -37,7 +37,7 @@ const AddUser = () => {
             })
             .then(res => console.log(res))
             .catch(e => console.log(e))
-            navigate("/")
+            navigate("/login")
             
         } else {
             console.log("error")
@@ -48,6 +48,7 @@ const AddUser = () => {
         <Fragment>
         <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
         <div className="clear"></div>
+        <h2 className="adminStyle"> Profitez de tous les services :  </h2>
             <form onSubmit={submit}  className="form-demo">
                 <fieldset>
                     <legend>Vous souhaitez me rejoindre ?</legend>

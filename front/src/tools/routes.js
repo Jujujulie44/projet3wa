@@ -18,7 +18,7 @@ import UpDateUser from "../components/UpDateUser";
 import SuccessCommande from "../components/SuccessCommande";
 import MentionsLegales from "../components/MentionsLegales";
 import SuccessPaiement from "../components/SuccessPaiement";
-
+import AboutUs from "../components/AboutUs.jsx"
 
 const routes = [
     {path:"/", component:<Home />},
@@ -40,6 +40,7 @@ const routes = [
     {path:"/SuccessCommande", component:<SuccessCommande />, auth:"user"},
     {path:"/MentionsLegales", component:<MentionsLegales />},  
     {path:"/SuccessPaiement", component:<SuccessPaiement />, auth:"user"},
+    {path:"/AboutUs", component:<AboutUs />},
     
     {path:"*", component:<Error404 />}
     

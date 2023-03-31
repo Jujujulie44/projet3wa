@@ -1,6 +1,5 @@
 import {Fragment} from "react";
 import { useNavigate } from "react-router-dom";
-// import decorationHautDroit from "../image/decorationHautDroit.png";
 import decorationBasGauche from "../image/decorationBasGauche.png";
 import photoPortrait from "../image/PhotoPortrait.jpg";
 import arabesqueAdmin from "../image/arabesqueAdmin.png";

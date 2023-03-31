@@ -31,7 +31,7 @@ const Profil = () => {
         <Fragment>
             {state.user.isLogged === true && (
                 <div>
-                    <h2 className="adminStyle">Bienvenue {state.user.prenom} !</h2>
+                    <h2 className="userStyle">Bienvenue {state.user.prenom} !</h2>
                     <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
                         <div className="info-profil">
                             <h3>Vos informations : </h3>

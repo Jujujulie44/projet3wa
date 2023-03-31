@@ -20,7 +20,7 @@ const SuccessPaiement = () => {
       <div className="clear"></div>
         
 
-            <h2 className="adminStyle">Finalisez votre Commande</h2>
+            <h2 className="userStyle">Finalisez votre Commande</h2>
             <form className="form-demo">
                 <fieldset>
                     <legend>Encore quelques détails</legend>
@@ -35,7 +35,7 @@ const SuccessPaiement = () => {
                 </fieldset>
                 
              </form>
-                <h2 className="adminStyle">Le paiement</h2>
+                <h2 className="userStyle">Le paiement</h2>
             <form className="form-demo">
                 <fieldset>
                     <legend>Coordonnées bancaires :</legend>

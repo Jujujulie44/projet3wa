@@ -53,6 +53,7 @@ const Login = () => {
         <Fragment>
         <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
           <div className="clear"></div> 
+          <h2 className="userStyle"> Accédez à tous les services :  </h2>
             <form className="form-demo" onSubmit={submit}>
                 <fieldset>
                     <legend>Vous êtes déjà inscrit ?</legend>

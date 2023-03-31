@@ -46,6 +46,7 @@ const EditArticle = () => {
         <Fragment>
         <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
         <div className="clear"></div>
+        <h2 className="adminStyle"> Vous êtes sur votre interface admin </h2>
             {article !== null && (
                 <form onSubmit={submit} className="form-demo">
                 <fieldset>

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import decorationHautDroit from "../image/decorationHautDroit.png";
 import decorationBasGauche from "../image/decorationBasGauche.png";
 import arabesqueAdmin from "../image/arabesqueAdmin.png";
+import cartman from "../image/cartman.gif";
 
 
 const Cart = () => {
@@ -55,7 +56,9 @@ const Cart = () => {
             
             <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
             <div className="clear"></div>
-            <h2 className="adminStyle"> Votre Panier : </h2>
+            <h2 className="userStyle"> Votre Panier : </h2>
+            <img src={cartman}  className="cartman"  alt="cartman animé"/>
+            <div className="clear"></div>
         <div className="container">
         <Fragment>
             {state.cart.map((product,i)=>{
