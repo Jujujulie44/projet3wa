@@ -2,8 +2,6 @@ import axios from "axios";
 import {useEffect, Fragment, useContext} from "react";
 import {BASE_URL} from "../tools/constante.js";
 import {StoreContext} from "../tools/context.js";
-// import decorationHautDroit from "../image/decorationHautDroit.png";
-import decorationBasGauche from "../image/decorationBasGauche.png";
 import arabesqueAdmin from "../image/arabesqueAdmin.png";
 
 const UserArticle = () => {
@@ -26,6 +24,7 @@ const UserArticle = () => {
     },[dispatch, state.products.length]);
     
     console.log(state)
+    
     const addToCart = (product) => {
         const productIsInCart = state.cart.find(el => el.id === product.id)
         let data = state.cart
@@ -34,7 +33,7 @@ const UserArticle = () => {
         
         if(!productIsInCart) {
             data.push(product) 
-            axios.post(`${BASE_URL}/addCart`,{product_id:product.id, panier_id:state.user.cartId}) // {product_id, panier_id}
+            axios.post(`${BASE_URL}/addCart`,{product_id:product.id, panier_id:state.user.cartId})
             .then(res => {
                 dispatch({
                     type:"ADD_TO_CART", 
@@ -48,7 +47,7 @@ const UserArticle = () => {
         
         <div className="clear"></div>
         <div className="container">
-            <h2 className="adminStyle">Baliser sa vie </h2>
+            <h2 className="userStyle">Baliser sa vie </h2>
             <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
         	<h2 className="order-title">Les tirages : </h2>
         <Fragment>
@@ -70,8 +69,9 @@ const UserArticle = () => {
                         </div>
                     </div>
                     <div  className="btn-product">
-                        <button onClick={() => addToCart(article)}>Ajouter au panier</button>
+                        <button disabled={!state.user.isLogged} onClick={() => addToCart(article)}>Ajouter au panier</button>
                     </div>
+                    
                 </div>
             </div>
             </div>
@@ -79,7 +79,6 @@ const UserArticle = () => {
                 }
             )}
         </Fragment>
-        <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
         </div>
         </Fragment>
     )
@@ -87,3 +86,4 @@ const UserArticle = () => {
 
 export default UserArticle
 
+//desactiver le bouton "ajouter au panier" quand le user n'est pas connecté. 

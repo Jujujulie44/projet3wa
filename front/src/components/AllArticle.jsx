@@ -40,6 +40,7 @@ const AllArticle = () => {
             <div className="clear"></div>
             <div className="container">
             <h2 className="adminStyle"> Vous êtes sur votre interface admin </h2>
+            <div  className="tableauDeBord"></div>
             <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
             <div>
                 <h2 className="admin-title">Tous vos produits en stock : </h2>
@@ -65,10 +66,10 @@ const AllArticle = () => {
                         <p>{article.descriptif}</p>
                         <p>{article.prix}€</p>
                     </div>
-                    <div className="btn-product">
-                        <button onClick={() => deletedArticle(article.id)}>Supprimer l'article</button>
-                        <button onClick={() => editArticle(article.id)}>modifier l'article</button>
                     </div>
+                    <div className="btn-product-admin">
+                        <button onClick={() => editArticle(article.id)}>modifier l'article</button>
+                        <button onClick={() => deletedArticle(article.id)}>Supprimer l'article</button>
                     </div>
                 </div>
                 </div>

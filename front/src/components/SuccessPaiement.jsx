@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import {Fragment} from "react";
 import decorationHautDroit from "../image/decorationHautDroit.png";
@@ -19,7 +18,7 @@ const SuccessPaiement = () => {
     <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
       <div className="clear"></div>
         
-
+            <h2 className="aboutUs">Vous serez contacté par mail sous 48h</h2>
             <h2 className="userStyle">Finalisez votre Commande</h2>
             <form className="form-demo">
                 <fieldset>
@@ -28,10 +27,8 @@ const SuccessPaiement = () => {
                     <input className="form-input"  type='text' name='nom' placeholder='Nom' />
                     <label>Votre prénom :</label>
                     <input className="form-input"  type='text' name='prénom' placeholder='Prénom' />
-                    <label>Où souhaitez-vous votre consultation ?</label>
-                    <input type="checkbox" name="au cabinet"  value="cabinet"/><label>Au cabinet</label>
-                    <input type="checkbox" name="au cabinet"  value="visio"/><label>En visio</label>
-                    <input type="checkbox" name="au cabinet"  value="telephone"/><label>Par téléphone</label>
+                    <label>Votre Email :</label>
+                    <input className="form-input"  type='email' name='email' placeholder='Email' />
                 </fieldset>
                 
              </form>

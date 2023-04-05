@@ -18,9 +18,8 @@ const AddArticle = ()=> {
     
     const handleChange = (e) => {
         const {name, value} = e.target
-        if(inputCheck(value)){
+        
             setAddArticleData({...addArticleData, [name]:value})
-        }
     }
     
     const submit = (e) => {
@@ -45,7 +44,7 @@ const AddArticle = ()=> {
             <img src={decorationHautDroit} className="decorationright" alt="décoration haut de page" />
             <div className="clear"></div>
             <h2 className="adminStyle"> Vous êtes sur votre interface admin </h2>
-            <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
+            
                 <form className="form-demo" onSubmit={submit} encType="multipart/form-data">
                     <fieldset>
                       <legend>
@@ -62,6 +61,7 @@ const AddArticle = ()=> {
                       <input className="form-submit" placeholder='Ajouter' type='submit' />
                     </fieldset>
                 </form>
+                <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
             <img src={decorationBasGauche} className="decoration" alt="décoration bas de page" />
         </Fragment>
     )

@@ -68,12 +68,12 @@ body{
 }
 
 
-/**********TITRES INTERFACE ADMIN***********/
+/**********TITRES INTERFACE ADMIN/ USER***********/
 .adminStyle,
 .userStyle{
   margin-left: 5px;
   margin-right: 10px;
-  font-size : 4em;
+  font-size : 2.5em;
   font-family: 'Mommyday', sans-serif;
   font-style:italic;
   color:#995273;
@@ -84,6 +84,7 @@ body{
 }
 
 .arabesqueAdmin{
+  padding-top: 50px;
   width: 25%;
   display: flex;
   margin: auto;
@@ -96,7 +97,7 @@ body{
 /***************************/
 h3{
   text-align:center;
-  font-size: 2em;
+  font-size: 1.2em;
 }
 /*************TITRES PRINCIPAUX************/
 
@@ -109,12 +110,17 @@ h2{
   
 }
 
-.diane{
+.diane,
+.aboutUs{
   font-size: 3em;
   font-family: 'Allura', cursive;
   word-spacing: 0.2em;
 }
 
+.aboutUs{
+  padding-top: 2em;
+  text-decoration: underline;
+}
 
 /***************HEADER****************************/ 
 
@@ -130,7 +136,7 @@ header {
     text-align:center;
     color:white;
     font-size:4.5em;
-    margin-bottom:1.5em;
+    /*margin-bottom:1.5em;*/
     line-height: 1.5;
     letter-spacing: 0.1em;
 }
@@ -157,8 +163,6 @@ header {
 }
 
 .navbar ul li a {
-  /*border-top: groove;*/
-  border-bottom: groove;
   font-size:1.5em;
   color: white;
   font-weight: bold;
@@ -180,8 +184,8 @@ header {
   display: none;
 	width: 35px;
   position: absolute; 
-  right: 40px; 
-  top: 30px; 
+  right: 20px; 
+  top: 10px; 
   cursor: pointer;
   color: whote;
 }
@@ -249,33 +253,61 @@ cite {
 	display: block;
 }
 
-.presentation {
+.article-1 p{
 	text-align: center;
 	margin: 20px;
 	line-height: 1.5em;
 	font-size:1.7rem;
 }
 
-.presentation2 p{
+.legende{
+  font-size: 1.2em;
+  font-family: 'Allura', cursive;
+}
+
+.article-2 p{
 	padding-top: 30px;
 	text-align: center;
-	margin: 20px;
+	margin: 40px;
 	line-height: 1.5em;
 	font-size:1.7rem;
 }
 
-.presentation3{
-  text-align:center;
-  font-family: 'Black And White Picture', sans-serif;
-  font-size: 2em;
+.filRouge{
+  margin: auto;
+	display: block;
+	width: 15%;
 }
 
+
+.article-3 p{
+  text-align:center;
+  font-family: 'Allura', cursive;
+  font-weight: bold;
+  font-size: 2em;
+  color:#995273;
+}
+
+.article-4 p{
+  text-align:center;
+  font-family: 'Allura', cursive;
+  font-weight: bold;
+  font-size: 2.6em;
+}
+
+
+.papillon{
+  margin: auto;
+	display: block;
+	width: 10%;
+	padding-bottom: 30px;
+}
 
 /****************DECORATION PAGE****************/
 
 .decoration{
   width:5%;
-  margin-left: 40px;
+  margin-left: 30px;
   margin-bottom: 40px;
 }
 
@@ -307,9 +339,8 @@ cite {
   overflow: hidden;
   box-shadow: 0px 0px 15px 5px;
   padding-bottom: 25px;
-  margin-bottom:50px;
+  margin-bottom:70px;
   border-radius: 20px;
-  
 }
 
 .card-container:hover {
@@ -362,10 +393,44 @@ cite {
   cursor:pointer;
 }
 
-.btn-product button:hover {
+.btn-product button:hover,
+.btn-product-admin button:hover{
   background:purple;
   color: white;
   
+}
+
+.btn-product-admin,
+.btn-product-users{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor:pointer;
+}
+
+.btn-product-admin button{
+  padding: 0.5rem;
+  background-color: #a28593;
+  transition: 0.2s;
+  text-transform: uppercase;
+  color:white;
+  border:1px solid black;
+  border-radius: 10px;
+  font-weight:bold;
+  margin: 5px;
+}
+
+
+.btn-product-users button {
+  padding: 0.5rem;
+  background-color: #a28593;
+  transition: 0.2s;
+  text-transform: uppercase;
+  color:white;
+  border:1px solid black;
+  border-radius: 10px;
+  font-weight:bold;
+  margin: 5px;
 }
 
 /**********BUTTON***********/
@@ -383,12 +448,19 @@ cite {
   padding-bottom: 50px;
 }
 
-.cartman{
-  padding-bottom: 60px;
+.cart-paiement{
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-bottom: 1px;
+}
+
+.cart-bancaire{
   margin: auto;
 	display: block;
-  width: 22%;
+  width: 15%;
 }
+
 
 /*******FORMULAIRES******/
 legend{
@@ -493,6 +565,18 @@ footer{
   font-size: 2em;
 }
 
+.profil-admin{
+    font-size: 2em;
+  }
+  
+.tableauDeBord{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin:auto;
+    width: 150px;
+    border-bottom: 5px solid #a38282;
+  }
+
 /***********MENTIONS LEGALES ************/ 
 
 .mentions-legales p{
@@ -500,42 +584,95 @@ footer{
     font-size: 1.7em;
     padding-right: 30px;
     padding-left: 30px;
-  }
+}
 
+/************ABOUT US TABLEAU***********/
+table {
+	width: 60%;
+	margin: 2rem auto 5rem auto;
+	border-collapse: collapse;
+	line-height: 1.3;
+}
 
+th {
+	background-color: #7e4a7c;
+	font-weight: bold;
+	color: white;
+}
 
+th, td {
+  font-size: 1.5em;
+	border: 1px solid #b878b5;
+	text-align: center;
+	vertical-align: middle;
+	padding: 1.5rem 2rem;
+}
 
+td:empty {
+	background-color: #ffeefe;
+}
 
+td:first-of-type {
+	font-weight: bold;
+}
+  
+  
 /********VERSION MOBILE & TABLETTE ************/
 
 @media screen and (max-width: 950px) {
   
+  th, td {
+    font-size: 0.9em;
+	  padding: 0.5rem 0.5rem;
+}
+
   header {
     padding: 1em;
 }
   
+  /***************HOME***************/
+  .diane,
+  .aboutUs{
+    font-size: 2em;
+    font-family: 'Allura', cursive;
+    word-spacing: 0.2em;
+  }
   
+  .papillon{
+	width: 15%;
+}
   
-  .adminStyle{
-    font-size : 1.8em;
+  .article-1 p,
+  .article-2 p,
+  .article-3 p,
+  .article-4 p{
+	font-size:1.2rem;
+}
+
+  /***************STYLE*************/
+  
+  .adminStyle,
+  .userStyle{
+    font-size : 1.5em;
   }
   /**********ICON NAV************/
   
   .logout{
   width: 20px;
-  right : 45px;
-  top: 100px;
+  right : 90px;
+  top: 25px;
 }
   
   .panier {
     width:30px;
-    right:110px;
-    top: 25px;
+    right:130px;
+    top: 20px;
   }
   
   .utilisateur{
+    left:10px;
     width: 40px;
-    top: 27px; 
+    top: 15px; 
 }
   
   /***********FORMULAIRE************/
@@ -546,8 +683,14 @@ footer{
   label{
      font-size: 1.2em;
   }
+/************TITRE PRINCIPAL*****************/
+	.logo h1{
+	  padding-left:20px;
+	  text-align:left;
+    font-size:2em;
+	}
 
-/***********LES TITRES***********/
+/**********************/
   h2{
     font-size: 1.5em;
   }
@@ -600,27 +743,30 @@ footer{
     color:#fff;
     font-size:1em;
 	}
-	/************TITRE PRINCIPAL*****************/
-	.logo h1{
-	  padding-top: 2em;
-    font-size:2em;
-	}
-	
-	
- .btn-product button:hover {
-   background:purple;
-   color: white;
+	/****************button**********/
+	.btn-product button {
+    padding: 0.5rem;
+    font-size: 10px;
   }
+  
+  .btn-product-admin button,
+  .btn-product-users button{
+    padding: 5px;
+    font-size: 10px;
+    margin: 2px;
+}
+
   /********************CITATION********************/
-  q {
-  font-size: 1.2rem;
+  .citation {
+    border: 1px solid purple;
   }
+  
+  q {
+   font-size: 1.5rem;
+  }
+  
   cite {
     font-size: 1.3rem;
-  }
-  /********************HOME******/
-  .presentation3{
-    font-size : 1em;
   }
   /**************MENTIONS LEGALES*********/ 
   .mentions-legales p{
@@ -640,6 +786,7 @@ footer{
  /***********DECORATION PAGE*************/
 
  .decoration{
+   padding-top:50px;
    margin-left: 15px;
   }
 
@@ -652,22 +799,7 @@ footer{
 	  margin: auto;
     width:300px;
   }
-	
-  .diane{
-    font-size: 2em;
-    font-family: 'Allura', cursive;
-    word-spacing: 0.2em;
-  }
 
-  .presentation {
-	  font-size:1rem;
-	  padding-top: 10px
-  }
-
-  .presentation2 p{
-	  font-size:1rem;
-  }
-  
   /*********SUCCESS COMMANDE *******/
   
   .successCommande{
@@ -694,10 +826,25 @@ footer{
     font-size: 1em;
   }
   
+  .profil-admin{
+    font-size: 1.2em;
+  }
+  
+  .tableauDeBord{
+    margin:auto;
+    width: 50px;
+    border-bottom: 4px solid #a38282;
+  }
+  
   /********** CART *************/
-  .cartman{
-  padding-bottom: 30px;
-}
+  .cart-paiement{
+  font-size: 1em;
+  margin-bottom: 1px;
+  }
+
+.cart-bancaire{
+  width: 20%;
+  }
 
 
 }

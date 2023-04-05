@@ -14,7 +14,7 @@ import { faFacebook,faInstagram} from "@fortawesome/free-brands-svg-icons";
             		<h3>Contact :</h3>
 		            <address>
 		            	<p>Mail : <a href="mailto:ficellesetmessages@gmail.com">ficellesetmessages@gmail.com</a></p>
-		            	<p>Téléphone : <a href="tel:+336675360419">06 75 46 27 69</a></p>
+		            	<p>Téléphone : 06 75 46 27 69</p>
 		            	<p>Adresse : Rue de Brocéliande 44300 Nantes</p>
 		            	<h3>Réseaux sociaux :</h3>
 		            	<div className="networks">

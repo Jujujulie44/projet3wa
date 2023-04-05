@@ -22,10 +22,9 @@ const EditArticle = () => {
     
     const handleChange = (e) => {
         const {name, value} = e.target
-        if(inputCheck(value)){
+    
             setArticle({...article, [name]:value})
             setButtonText("enregistrer les modifications")
-        }
     }
     
     const submit = (e) =>{

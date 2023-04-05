@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import decorationHautDroit from "../image/decorationHautDroit.png";
 import decorationBasGauche from "../image/decorationBasGauche.png";
 import arabesqueAdmin from "../image/arabesqueAdmin.png";
-import cartman from "../image/cartman.gif";
+import cartesBancaires from "../image/cartesBancaires.png";
 
 
 const Cart = () => {
@@ -54,11 +54,15 @@ const Cart = () => {
             <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
             <div className="clear"></div>
             
+            {state.cart.length <= 0 && (
+                <h2> votre panier est vide</h2>
+            )}
+            {state.cart.length > 0 && (
+                <h2 className="userStyle"> Votre Panier : </h2>
+            )}
             <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
             <div className="clear"></div>
-            <h2 className="userStyle"> Votre Panier : </h2>
-            <img src={cartman}  className="cartman"  alt="cartman animé"/>
-            <div className="clear"></div>
+            
         <div className="container">
         <Fragment>
             {state.cart.map((product,i)=>{
@@ -86,9 +90,17 @@ const Cart = () => {
                 </div>
                 )
             })}
+            <div>
+            <p className="cart-paiement">Pour procéder au paiement : </p>
+            <img className="cart-bancaire" src={cartesBancaires}  alt="Cartes bancaires"/>
+            </div>
+            
             <div  className="btn-product">
                 <button disabled={state.cart.length <= 0} onClick={submitCart}>Valider panier</button>
             </div>
+            <div className="clear"></div>
+            <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
+            <div className="clear"></div>
             <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
             <div className="clear"></div>
         </Fragment>
@@ -97,6 +109,10 @@ const Cart = () => {
     )
 }    
 export default Cart
+
+//{state.cart.length <= 0 && (
+ //<h2> votre panier est vide</h2>
+//)}
 
 
 

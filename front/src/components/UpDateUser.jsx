@@ -6,6 +6,7 @@ import inputCheck from "../tools/inputLength.js"
 import decorationHautDroit from "../image/decorationHautDroit.png";
 import decorationBasGauche from "../image/decorationBasGauche.png";
 import { useNavigate } from "react-router-dom";
+import arabesqueAdmin from "../image/arabesqueAdmin.png";
 
 
 const UpDateUser = () => {
@@ -27,9 +28,7 @@ const UpDateUser = () => {
     
     const handleChange = (e) => {
         const {name, value} = e.target
-        if(inputCheck(value)){
             setUser({...user, [name]:value})
-        } 
     }
     
     
@@ -65,6 +64,8 @@ const UpDateUser = () => {
                     </fieldset>
                 </form>
              )}
+             <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
+            <div className="clear"></div>
             <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
         </Fragment>
         )

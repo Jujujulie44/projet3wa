@@ -5,6 +5,8 @@ import inputCheck from "../tools/inputLength.js";
 import { useNavigate } from "react-router-dom";
 import decorationHautDroit from "../image/decorationHautDroit.png";
 import decorationBasGauche from "../image/decorationBasGauche.png";
+import arabesqueAdmin from "../image/arabesqueAdmin.png";
+
 
 const AddUser = () => {
     const [userData, setUserData] = useState({
@@ -43,15 +45,27 @@ const AddUser = () => {
             console.log("error")
         }
     }
+        const onClick = () => {
+            navigate('/login');
+};
+    
+    
     
     return(
         <Fragment>
         <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
         <div className="clear"></div>
         <h2 className="adminStyle"> Profitez de tous les services :  </h2>
+        <h3  className=" profil-admin"> Vous êtes déjà inscrit ? </h3>
+        <div  className="btn-product" >
+	    	<button type="button"  onClick={onClick}>Se connecter</button>
+	    </div>
+	    <div  className="tableauDeBord"></div>
+	    <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
+        <div className="clear"></div>
             <form onSubmit={submit}  className="form-demo">
                 <fieldset>
-                    <legend>Vous souhaitez me rejoindre ?</legend>
+                    <legend>Inscrivez- vous : </legend>
                     <label> Votre Nom : </label>
                     <input className="form-input" type='text' placeholder='nom' name='nom' onChange={handleChange} value={userData.nom} />
                     <label> Votre Prénom : </label>
@@ -63,6 +77,8 @@ const AddUser = () => {
                     <input className="form-submit" type='submit' />
                 </fieldset>
             </form>
+            <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
+            <div className="clear"></div>
             <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
         </Fragment>   
     )

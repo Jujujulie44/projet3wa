@@ -6,6 +6,8 @@ import {StoreContext} from "../tools/context.js";
 import { useNavigate } from "react-router-dom";
 import decorationHautDroit from "../image/decorationHautDroit.png";
 import decorationBasGauche from "../image/decorationBasGauche.png";
+import arabesqueAdmin from "../image/arabesqueAdmin.png";
+
 
 const Login = () => {
     
@@ -56,7 +58,7 @@ const Login = () => {
           <h2 className="userStyle"> Accédez à tous les services :  </h2>
             <form className="form-demo" onSubmit={submit}>
                 <fieldset>
-                    <legend>Vous êtes déjà inscrit ?</legend>
+                    <legend>Connectez-vous : </legend>
                     <label>Email : </label>
                     <input className="form-input"  type='text' name='email' value={info.email} onChange={handleChange} placeholder='email' />
                     <label>Mot de passe </label>
@@ -64,6 +66,8 @@ const Login = () => {
                     <input className="form-submit" type="submit" value={buttonText} />
                 </fieldset>
             </form>
+            <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
+            <div className="clear"></div>
             <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
         </Fragment>   
     )

@@ -19,11 +19,11 @@ const Nav = (props) => {
                     <li>
                         <NavLink onClick={() => setMobileMenuOpen(false)} to="/">Accueil</NavLink>
                     </li>
-                
+        
                     <li>
                         <NavLink onClick={() => setMobileMenuOpen(false)} to="/userArticle">Les tirages</NavLink>
                     </li>
-                    
+        
                     <li>
                         <NavLink onClick={() => setMobileMenuOpen(false)} to="/aboutUs">A propos</NavLink>
                     </li>
@@ -31,21 +31,14 @@ const Nav = (props) => {
                     {state.user.admin && (
                         <Fragment>
                             <li>
-                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/addArticle">Ajouter un produit</NavLink>
-                            </li>
-                            <li>
-                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/allArticle">Tous les produits</NavLink>
-                            </li>
+                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/profil">Mon profil admin</NavLink>
+                             </li>
                         </Fragment>
                     )}
                     {state.user.isLogged === false && (
                         <Fragment>
                             <li>
-                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/addUser">S'inscrire</NavLink>
-                            </li>
-                            
-                            <li>
-                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/login">Se connecter</NavLink>
+                                <NavLink onClick={() => setMobileMenuOpen(false)} to="/addUser">Se connecter</NavLink>
                             </li>
                             
                         </Fragment>
@@ -61,12 +54,7 @@ const Nav = (props) => {
                     )}
                 </ul>
             </div>
-            
-                
-           
-            
-                <img onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="menu-burger"src={menuBtn} alt="menu burger" />
-            
+            <img onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="menu-burger"src={menuBtn} alt="menu burger" />
       </nav>
             
       );
