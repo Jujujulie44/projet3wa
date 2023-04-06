@@ -1,5 +1,6 @@
 import Error404 from "../components/Error404.jsx"
 import Home from "../components/Home.jsx"
+import HomeCarousel from "../components/HomeCarousel.jsx"
 import Login from "../components/Login.jsx"
 import AddUser from "../components/AddUser.jsx"
 import Profil from "../components/Profil.jsx"
@@ -22,6 +23,7 @@ import AboutUs from "../components/AboutUs.jsx"
 
 const routes = [
     {path:"/", component:<Home />},
+    {path:"/HomeCarousel", component:<HomeCarousel />},
     {path:"/login", component:<Login />},
     {path:"/addUser", component:<AddUser />},
     {path:"/profil", component:<Profil />, auth:"user"},

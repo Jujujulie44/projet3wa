@@ -1,6 +1,7 @@
 import {pool} from "../config/database.js"
 
 export default (req, res) => {
+    
     const sql = `
         SELECT 
             products.id,

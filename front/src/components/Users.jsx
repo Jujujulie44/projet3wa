@@ -2,7 +2,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import {BASE_URL} from '../tools/constante.js';
 import {useEffect, useState, Fragment} from "react";
-import decorationBasGauche from "../image/decorationBasGauche.png";
 import arabesqueAdmin from "../image/arabesqueAdmin.png";
 
 
@@ -66,14 +65,9 @@ const Users = () => {
     	    </div>
         </div>
         <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
-        <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
 		<div className="clear"></div>
         </Fragment>
     )
 }
 
 export default Users 
-
-//import {NavLink} from 'react-router-dom'
-//<li>Nom:<NavLink to={`/user/${user.id}`}>{user.nom}</NavLink></li>
-//<li>Prenom:{user.prenom}</li>
