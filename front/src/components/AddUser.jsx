@@ -30,6 +30,11 @@ const AddUser = () => {
         
         if(inputCheck(userData.nom) && inputCheck(userData.prenom) && inputCheck(userData.email) && inputCheck(userData.password)){
             
+            if (userData.password.length < 8) {
+            alert("Le mot de passe doit comporter au moins 8 caractères.");
+            return;
+            }
+            
             axios.post(`${BASE_URL}/addUser`,{
                nom : userData.nom,
                prenom: userData.prenom,

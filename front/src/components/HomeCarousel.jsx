@@ -45,22 +45,22 @@ const HomeCarousel =() => {
             className="mySwiper"
             >
             <SwiperSlide>
-                <img src={img1} alt="dessert"/>
+                <img src={img1} alt="cartomancie"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img src={img2} alt="dessert"/>
+                <img src={img2} alt="cartomancie"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img src={img3} alt="dessert"/>
+                <img src={img3} alt="cartomancie"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img src={img4} alt="dessert"/>
+                <img src={img4} alt="cartomancie"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img src={img5} alt="dessert"/>
+                <img src={img5} alt="cartomancie"/>
             </SwiperSlide>
             <SwiperSlide>
-                <img src={img7} alt="dessert"/>
+                <img src={img7} alt="cartomancie"/>
             </SwiperSlide>
         </Swiper>
     );

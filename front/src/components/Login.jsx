@@ -48,6 +48,10 @@ const Login = () => {
                         alert("Email ou mot de passe erroné")
                     }
                 })
+                
+                .catch(err=> {
+                    alert("Email ou mot de passe erroné")
+                })
             }
         }
         
