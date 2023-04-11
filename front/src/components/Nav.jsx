@@ -10,6 +10,7 @@ import logout from "../image/logout.png";
 const Nav = (props) => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     /*etat à false quand le menu est fermé*/
+    
     const [state] = useContext(StoreContext)
   
     return( 

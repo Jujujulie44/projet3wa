@@ -38,14 +38,14 @@ export default async (req, res) => {
             // On hash le password
             const mpdHash = await bcrypt.hash(password,saltRounds)
             
-            // on creer la liste des params pour add user
+            // on créé la liste des params pour add user
             const paramsSql = [nom, prenom, email, mpdHash]
             
             // on fait la requete
             const createUser = await asyncQuery(sql,paramsSql)
             const createPanier = await asyncQuery(sqlPanier, [createUser.insertId])
             
-            // on retourn la reponse
+            // on retourne la reponse
             return res.json({response:createPanier})
         }catch(err){
             console.log(err)

@@ -26,6 +26,9 @@ const EditPicture = () => {
             .catch(err => console.log(err))
         }
         
+        
+        
+    
     return (
         <Fragment>
         <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>

@@ -6,6 +6,7 @@ const Router = () => {
     return (
         <Routes>
             {/* on recupere la liste des routes et on la map */} 
+            
             {routes.map(({ path, auth, component },i) => {
                 return(
                     <Route 

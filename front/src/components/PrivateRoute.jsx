@@ -8,10 +8,12 @@ const PrivateRoute = ({children, auth = null}) => {
     // permet de recuperer le pathname  /login
     const location = useLocation().pathname;
     const [loading, setLoading] = useState(true)
+    
     /** 
     * On recupere user qui se trouve dans le state 
     * du reducer grace au destructuring
     **/
+    
     const [{user}, dispatch] = useContext(StoreContext)
     
     useEffect(() => {
@@ -39,7 +41,7 @@ const PrivateRoute = ({children, auth = null}) => {
     
     // On verrifie si a route est reservée au admin 
     const isLimitedToAdmin = auth === "admin";
-    // On verrifie si a route est reservée au utilisateur connecter
+    // On verrifie si a route est reservée aux utilisateurs connectés
     const isLimitedToConnected = auth === "user";
     
     // s'il n'y a pas de restriction sur cette route
@@ -50,6 +52,7 @@ const PrivateRoute = ({children, auth = null}) => {
     * OU
     * Si la route est reservée aux utilisateur et qu'il est connecté
     */
+    
     const isUserAuthorized = isPublic || (isLimitedToAdmin && isAdmin) || (isLimitedToConnected && isLogged);
 
     if(loading) return <p>Loading</p>

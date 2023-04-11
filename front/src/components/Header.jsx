@@ -16,7 +16,3 @@ const Header = () => {
 }
 
 export default Header
-
-    // {state.user.isLogged === true && (
-        //     <NavLink to="/Cart" onClick={() => setMobileMenuOpen(false)}><img className="panier" src={Panier} alt="panier" /></NavLink>
-        // )}

@@ -15,7 +15,7 @@ export default async (req, res) => {
     const paramsSql = [user_id]
     
     try{
-        // const articles = await asyncQuery(sqlArticle, paramsSql)
+        
         const user = await asyncQuery(sqlUser, paramsSql)
         
         res.json({user})

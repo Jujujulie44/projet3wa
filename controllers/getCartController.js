@@ -8,11 +8,12 @@ export default async (req, res) => {
     const paramsCart = [panier_id]
     const cart = await asyncQuery(sqlCart, paramsCart)
     
-    // je recupere la liste de tout les produit 
+    // je recupere la liste de tous les produits
+    
     const sqlProduct = "SELECT * FROM products"
     const product = await asyncQuery(sqlProduct, [])
     
-    // j extrait les id des produit pour les mettre dans un tableau
+    // j extraits les id des produit pour les mettre dans un tableau
     const idProduct = []
     
     cart.forEach((e) => {
