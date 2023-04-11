@@ -2,6 +2,7 @@
 /*********** TITRE ADMIN**************/
 @import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
 /*TITRES h1*/
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 @import url('https://fonts.cdnfonts.com/css/mommyday');
 /*BODY*/
@@ -141,6 +142,7 @@ header {
     /*margin-bottom:1.5em;*/
     line-height: 1.5;
     letter-spacing: 0.1em;
+    font-family: 'Great Vibes', cursive;
 }
 
 /*******************NAVBAR***************/
