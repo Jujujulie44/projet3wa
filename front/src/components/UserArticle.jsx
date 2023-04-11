@@ -26,6 +26,13 @@ const UserArticle = () => {
     console.log(state)
     
     const addToCart = (product) => {
+        
+        if (!state.user.isLogged) {
+        alert("Veuillez vous connecter pour ajouter des articles à votre panier.")
+        return
+    }
+        
+        
         const productIsInCart = state.cart.find(el => el.id === product.id)
         let data = state.cart
             
@@ -69,7 +76,7 @@ const UserArticle = () => {
                         </div>
                     </div>
                     <div  className="btn-product">
-                        <button disabled={!state.user.isLogged} onClick={() => addToCart(article)}>Ajouter au panier</button>
+                        <button onClick={() => addToCart(article)}>Ajouter au panier</button>
                     </div>
                     
                 </div>
@@ -86,4 +93,3 @@ const UserArticle = () => {
 
 export default UserArticle
 
-//desactiver le bouton "ajouter au panier" quand le user n'est pas connecté. 
