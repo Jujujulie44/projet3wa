@@ -11,6 +11,11 @@ const SuccessPaiement = () => {
       
       navigate("/SuccessCommande")
     };
+    
+    const onClick2 = () => {
+      
+      navigate("/userArticle")
+    };
    
    
   return (
@@ -30,7 +35,6 @@ const SuccessPaiement = () => {
                     <label>Votre Email :</label>
                     <input className="form-input"  type='email' name='email' placeholder='Email' />
                 </fieldset>
-                
              </form>
                 <h2 className="userStyle">Le paiement</h2>
             <form className="form-demo">
@@ -44,16 +48,16 @@ const SuccessPaiement = () => {
                     <input className="form-input"  type='date' name='date'/>
                     <label>Code de la carte :</label>
                     <input className="form-input"  type='number' name='Code de la carte' placeholder='CVC'/>
-                    
-                    
                     <div  className="btn-product" >
-                 <button type="button"  onClick={onClick}>Valider ma commande </button>
-                </div>
+                        <button type="button"  onClick={onClick}>Valider ma commande </button>
+                    </div>
                 </fieldset>
-                
             </form>
-      <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
-      <div className="clear"></div>
+            <div  className="btn-product" >
+	    		<button type="button"  onClick={onClick2}> retour </button>
+	    	</div>
+            <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
+            <div className="clear"></div>
     </Fragment>
   ); 
   
