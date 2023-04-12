@@ -14,6 +14,12 @@ const AddArticle = ()=> {
         prix:0
     
     })
+    
+    const onClick = () => {
+      
+      navigate('/profil');
+    };
+    
     const navigate = useNavigate()
     
     const handleChange = (e) => {
@@ -61,6 +67,9 @@ const AddArticle = ()=> {
                       <input className="form-submit" placeholder='Ajouter' type='submit' />
                     </fieldset>
                 </form>
+                <div  className="btn-product" >
+	    		    <button type="button"  onClick={onClick}> retour </button>
+	    	    </div>
                 <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
             <img src={decorationBasGauche} className="decoration" alt="décoration bas de page" />
         </Fragment>

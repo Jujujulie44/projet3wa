@@ -14,6 +14,11 @@ const Cart = () => {
     const [state, dispatch] = useContext(StoreContext)
     const navigate = useNavigate()
     
+    const onClick = () => {
+      
+      navigate('/userArticle');
+    };
+    
     // recupere tous les produits stocké dans le reducer 
     
     useEffect(() => {
@@ -98,6 +103,10 @@ const Cart = () => {
             <div  className="btn-product">
                 <button disabled={state.cart.length <= 0} onClick={submitCart}>Valider panier</button>
             </div>
+            <div  className="tableauDeBord"></div>
+            <div  className="btn-product" >
+	    		<button type="button"  onClick={onClick}> retour aux tirages </button>
+	    	</div>
             <div className="clear"></div>
             <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
             <div className="clear"></div>
@@ -109,11 +118,6 @@ const Cart = () => {
     )
 }    
 export default Cart
-
-//{state.cart.length <= 0 && (
- //<h2> votre panier est vide</h2>
-//)}
-
 
 
 

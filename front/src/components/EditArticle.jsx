@@ -13,6 +13,12 @@ const EditArticle = () => {
     const {id} = useParams()
     const navigate = useNavigate()
     
+    
+    const onClick = () => {
+      
+      navigate('/allArticle');
+    };
+    
     useEffect(() => {
         axios.post(`${BASE_URL}/getArticleByID`,{id})
             .then(res => setArticle(res.data.result[0]))
@@ -60,6 +66,9 @@ const EditArticle = () => {
                 </fieldset>
                 </form>
             )}
+            <div  className="btn-product" >
+	    		<button type="button"  onClick={onClick}> retour </button>
+	    	 </div>
             <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
         </Fragment>
     )

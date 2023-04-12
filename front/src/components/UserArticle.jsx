@@ -28,7 +28,7 @@ const UserArticle = () => {
     const addToCart = (product) => {
         
         if (!state.user.isLogged) {
-        alert("Veuillez vous connecter pour ajouter des articles à votre panier.")
+        alert("Veuillez vous connecter ou vous inscrire pour ajouter des tirages à votre panier.")
         return
     }
         

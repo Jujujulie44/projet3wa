@@ -5,11 +5,17 @@ import { useNavigate } from "react-router-dom";
 import {Fragment} from "react";
 import decorationHautDroit from "../image/decorationHautDroit.png";
 import decorationBasGauche from "../image/decorationBasGauche.png";
+import arabesqueAdmin from "../image/arabesqueAdmin.png"; 
 
 
 const EditPicture = () => {
     const {id} = useParams()
     const navigate = useNavigate()
+    
+    const onClick = () => {
+      
+      navigate('/allArticle');
+    };
     
     
     const submit = (e) => {
@@ -33,6 +39,9 @@ const EditPicture = () => {
         <Fragment>
         <img src={decorationHautDroit}  className="decorationright"  alt="décoration haut de page"/>
         <div className="clear"></div>
+        <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
+        <div className="clear"></div>
+        <h2 className="adminStyle"> Vous êtes sur votre interface admin </h2>
             <form className="form-demo" onSubmit={submit} encType="multipart/form-data">
             <fieldset>
                 <legend>Vous souhaitez modifier l'image ?</legend>
@@ -40,9 +49,16 @@ const EditPicture = () => {
                 <input className="form-submit" type='submit' />
             </fieldset>  
             </form>
+            
+            <div  className="btn-product" >
+	    		<button type="button"  onClick={onClick}> retour </button>
+	    	 </div>
             <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
         </Fragment>
+        
+        
     )
+    
 }
 
 export default EditPicture

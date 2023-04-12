@@ -15,6 +15,11 @@ const UpDateUser = () => {
     const [state, dispatch] = useContext(StoreContext)
     const navigate = useNavigate();
     
+    const onClick = () => {
+      
+      navigate('/profil');
+    };
+    
     useEffect(() => {
         setUser({
             nom:state.user.nom,
@@ -44,6 +49,7 @@ const UpDateUser = () => {
             .catch(e => console.log(e))
             navigate("/profil")
         }
+        
     }
     
     return (
@@ -63,7 +69,12 @@ const UpDateUser = () => {
                             <input className="form-submit" type='submit' />
                     </fieldset>
                 </form>
+                
              )}
+             
+             <div  className="btn-product" >
+	    		<button type="button"  onClick={onClick}> retour </button>
+	    	 </div>
              <img src={arabesqueAdmin}  className="arabesqueAdmin"  alt=" Arabesque décorative"/>
             <div className="clear"></div>
             <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>

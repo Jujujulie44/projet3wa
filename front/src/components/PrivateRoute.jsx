@@ -31,10 +31,10 @@ const PrivateRoute = ({children, auth = null}) => {
             .catch(e => console.log(e))
           } else { setLoading(false) }
         }
-    },[])
+    },[dispatch, user.id])
   
     // permet de bloquer le chargement des composants si l'utilisateur n'est pas logged ou que le route est securiseé
-    useEffect(() => { if (user.id || !auth) setLoading(false) },[user, location])
+    useEffect(() => { if (user.id || !auth) setLoading(false) },[user,auth, location])
     
     // On recupere les variables qui permettent de savoir si l'utilisateur est connecté et/ou admin
     const {isAdmin, isLogged} = user;

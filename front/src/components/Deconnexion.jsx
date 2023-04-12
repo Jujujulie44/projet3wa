@@ -9,6 +9,7 @@ const Deconnexion = () => {
      const navigate = useNavigate()
      
      useEffect(() => {
+          
         dispatch({type: 'LOGOUT'})
         localStorage.removeItem('jwtToken')
         delete axios.defaults.headers.common['Authorization']
@@ -21,7 +22,7 @@ const Deconnexion = () => {
     return (
     <div>
       
-          <p>Vous êtes déconnecté, à bientôt sur mon site!</p>
+          
        
     </div>
      

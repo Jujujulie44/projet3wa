@@ -17,11 +17,17 @@ const AllArticle = () => {
         .catch(err => console.error(err))
     },[])
     
+    const onClick = () => {
+      
+      navigate('/profil');
+    };
+    
     const deletedArticle = (id) => {
         console.log(id)
         axios.post((`${BASE_URL}/deleteArticle`),{id})
             .then(res => setArticles(articles.filter((e) => e.id !== id)))
     }
+    
     
     const editArticle = (id) => {
         
@@ -33,6 +39,11 @@ const AllArticle = () => {
         navigate(`/editPicture/${id}`)
     }
     
+    const confirmDelete = (id) => {
+        if (window.confirm("Êtes-vous sûr de vouloir supprimer cet article ?")) {
+        deletedArticle(id);
+  }
+    }
     
     return (
         <Fragment>
@@ -69,13 +80,16 @@ const AllArticle = () => {
                     </div>
                     <div className="btn-product-admin">
                         <button onClick={() => editArticle(article.id)}>modifier l'article</button>
-                        <button onClick={() => deletedArticle(article.id)}>Supprimer l'article</button>
+                        <button onClick={() => confirmDelete(article.id)}>Supprimer l'article</button>
                     </div>
                 </div>
                 </div>
             </div>
                 )
             })}
+            <div  className="btn-product" >
+	    		<button type="button"  onClick={onClick}> retour </button>
+	    	 </div>
             
         </Fragment>
         <img src={decorationBasGauche}  className="decoration"  alt="décoration bas de page"/>
